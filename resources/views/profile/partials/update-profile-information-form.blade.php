@@ -18,11 +18,21 @@
         @method('patch')
 
         <div class="mb-2">
-            <label for="name">{{__('Name')}}</label>
-            <input class="form-control" type="text" name="name" id="name" autocomplete="name" value="{{old('name', $user->name)}}" required autofocus>
-            @error('name')
+            <label for="firstName">{{__('firstName')}}</label>
+            <input class="form-control" type="text" name="firstName" id="firstName" autocomplete="firstName" value="{{old('firstName', $user->firstName)}}" required autofocus>
+            @error('firstName')
             <span class="invalid-feedback" role="alert">
-                <strong>{{ $errors->get('name')}}</strong>
+                <strong>{{ $errors->get('firstName')}}</strong>
+            </span>
+            @enderror
+        </div>
+
+        <div class="mb-2">
+            <label for="lastName">{{__('lastName')}}</label>
+            <input class="form-control" type="text" name="lastName" id="lastName" autocomplete="lastName" value="{{old('lastName', $user->lastName)}}" required autofocus>
+            @error('lastName')
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $errors->get('lastName')}}</strong>
             </span>
             @enderror
         </div>
