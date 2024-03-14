@@ -21,7 +21,7 @@ class RestaurantController extends Controller
 
     public function create(){
 
-        $restaurants = Restautant :: all();
+        $restaurants = Restaurant :: all();
         $categories = Category :: all();
         $dishes = Dish :: all();
 
