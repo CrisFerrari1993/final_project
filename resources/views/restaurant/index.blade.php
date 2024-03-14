@@ -26,10 +26,10 @@
                         <span>{{$restaurant->user->lastName}}</span>
                         <br>
                         <strong>Logo ristorante</strong>
-                        <img src="{{ asset('storage/' . $restaurant->logo) }}" alt="logo">
+                        <img src="{{ asset('storage/' . $restaurant->logo) }}" alt="logo" style="width: 100px; height: 100px">
                         <br>
                         <strong>Wallpaper ristorante</strong>
-                        <img src="{{ asset('storage/' . $restaurant->wallpaper) }}" alt="wallpapaer">
+                        <img src="{{ asset('storage/' . $restaurant->wallpaper) }}" alt="wallpapaer" style="width: 100px; height:100px;">
                     </li>
                 @endif
             @endauth    
