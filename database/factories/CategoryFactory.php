@@ -17,7 +17,7 @@ class CategoryFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name' => fake()->randomElements(['Cinese', 'Messicano', 'Sushi', 'Etnico', 'Tipico', 'Italiano', 'Kebab', 'Della nonna']),
         ];
     }
 }
