@@ -4,6 +4,10 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\RestaurantController;
+use App\Http\Controllers\DishController;
+
+use App\Models\Restaurant;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,11 +27,26 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/',[RestaurantController :: class, 'index'])->name('restaurant.index');
-    Route::get('/create', [RestaurantController::class , 'create'])->name('restaurant.create');
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('/',[RestaurantController :: class, 'index'])
+        ->name('restaurant.index');
+
+    Route::get('/create', [RestaurantController::class , 'create'])
+        ->name('restaurant.create');
+
+    Route::get('/profile', [ProfileController::class, 'edit'])
+        ->name('profile.edit');
+
+    Route::patch('/profile', [ProfileController::class, 'update'])
+        ->name('profile.update');
+
+    Route::delete('/profile', [ProfileController::class, 'destroy'])
+        ->name('profile.destroy');
+
+
+
+    // rotta protette da auth per i piatti
+    route::get('dish/create', [DishController::class , 'create'])
+        ->name('dish.create');
 });
 
 require __DIR__.'/auth.php';
