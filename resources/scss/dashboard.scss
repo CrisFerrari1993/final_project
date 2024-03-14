@@ -5,6 +5,8 @@ a {
     text-decoration: none;
 }
 img.wallpaper {
+    object-fit: cover;
+    height: 300px;
     width: 100%;
 }
 
