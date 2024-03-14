@@ -3,7 +3,7 @@
 @section('content')
 @if (auth()->user()->restaurant)
     <div class="text-center m-4">
-        <button class="btn btn-primary"><a class="text-white" href="{{route('restaurant.create')}}"> + Add dish</a></button>
+        <button class="btn btn-primary"><a class="text-white"> + Add dish</a></button>
     </div>
     <ul>
         <!-- delete foreach -->
@@ -29,7 +29,7 @@
                         <img src="{{ asset('storage/' . $restaurant->logo) }}" alt="logo">
                         <br>
                         <strong>Wallpaper ristorante</strong>
-                        <img src="{{ asset('storage/' . $restaurant -> wallpaper) }}" alt="wallpapaer">
+                        <img src="{{ asset('storage/' . $restaurant->wallpaper) }}" alt="wallpapaer">
                     </li>
                 @endif
             @endauth    
