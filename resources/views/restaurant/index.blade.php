@@ -6,9 +6,10 @@
         <button class="btn btn-primary"><a class="text-white" href="{{route('restaurant.create')}}"> + Add dish</a></button>
     </div>
     <ul>
+        <!-- delete foreach -->
         @foreach ($restaurants as $restaurant)
             @auth
-                @if (auth()->user()-> id == $restaurant->user_id)
+                @if (auth()->user()->id == $restaurant->user_id)
                     <li>
                         <h4>{{$restaurant->name}}</h4>
                         <img src="{{$restaurant->wallpaper}}" alt="">
