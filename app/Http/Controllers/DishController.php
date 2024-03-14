@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facedes\Auth;
 
+
 use App\Models\Restaurant;
 use App\Models\Dish;
 
@@ -113,10 +114,8 @@ class DishController extends Controller
      */
     public function destroy($id)
     {
-        $dish = Dish:: find($id);
-
-        $dish ->delete();
-        
+        $dish = Dish::findOrFail($id);
+        $dish -> delete();
 
         return redirect() -> route('restaurant.index');
     }

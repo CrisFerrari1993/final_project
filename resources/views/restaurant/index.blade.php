@@ -21,7 +21,7 @@
                         <img class="w-50" src="{{asset('storage/' . $dish->image)}}" alt="">
                     </a>
                     <div><a href="">EDIT</a></div>
-                        <form action="{{ route('dish.destroy', $dish ->id) }}" method="POST">
+                        <form action="{{route('dish.destroy', $dish ->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
                             <input type="submit" value="Elimina">
