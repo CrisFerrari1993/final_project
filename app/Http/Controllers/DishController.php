@@ -115,9 +115,9 @@ class DishController extends Controller
     {
         $dish = Dish:: find($id);
 
-        $dish -> name() -> detach();
-        $dish -> delete();
+        $dish ->delete();
+        
 
-        return redirect() -> route('dish.index');
+        return redirect() -> route('restaurant.index');
     }
 }
