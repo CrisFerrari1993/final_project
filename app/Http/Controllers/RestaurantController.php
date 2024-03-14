@@ -44,14 +44,28 @@ class RestaurantController extends Controller
 
         $newRestaurant = new Restaurant();
 
+        // check img
+        if ($request->hasFile('logo')) {
+            $logo = $data['logo'];
+            $logo_path = Storage::put('uploads', $data['logo']);
+        } else {
+            $logo_path = null;
+        }
+
+        if ($request->hasFile('wallpaper')) {
+            $wallpaper = $data['wallpaper'];
+            $wallpaper_path = Storage::put('uploads', $data['wallpaper']);
+        } else {
+            $wallpaper_path = null;
+        }
+
         $newRestaurant->name = $data['name'];
         $newRestaurant->adress = $data['adress'];
         $newRestaurant->adress = $data['adress'];
         $newRestaurant->user()->associate($user);
-
-        // capire come popolare le colonne contenenti immagini (logo e wallpaper)
-
         $newRestaurant->vat_num = $data['vat_num'];
+        $newRestaurant->logo = $logo_path;
+        $newRestaurant->wallpaper = $wallpaper_path;
 
         $newRestaurant->save();
 
