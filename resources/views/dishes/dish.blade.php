@@ -15,17 +15,6 @@
             <label for="name">nome del piatto</label>
             <input type="text" name="name" id="name">
             
-            <label for="type">Tipo di piatto</label>
-            <select name="type" name="type" id="type">
-                <option value="antipasto">Antipasto</option>
-                <option value="primo">Primo</option>
-                <option value="secondo">Secondo</option>
-                <option value="contorno">Contorno</option>
-                <option value="pizza">Pizza</option>
-                <option value="dolce">Dolce</option>
-                <option value="beverage">Beverage</option>
-            </select>
-            
             <label for="description">Descrizione del piatto e ingredienti</label>
             <textarea name="description" id="description" cols="30" rows="10"></textarea>
 

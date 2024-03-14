@@ -20,7 +20,6 @@ return new class extends Migration
             $table->text('description')->required();
             $table->decimal('price')->required();
             $table->boolean('aviability');
-            $table->string('type')->required();
             $table->timestamps();
         });
     }

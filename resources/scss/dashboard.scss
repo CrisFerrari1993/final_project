@@ -4,17 +4,20 @@
 a {
     text-decoration: none;
 }
-img {
-    max-width: 100%;
+img.wallpaper {
+    width: 100%;
 }
 
 img.card {
-    width: 300px;
-    height: 200px;
+    max-width: 100%;
 }
 a.idx_link {
     color: black;
-    text-align: none;
+    text-decoration: none;
+}
+a.btn_link {
+    color: white;
+    text-decoration: none;
 }
 
 #wrapper {

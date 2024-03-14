@@ -60,8 +60,6 @@ class DishController extends Controller
         $dish -> description = $data['description'];
         $dish -> price = $data['price'];
         $dish -> aviability = $data['aviability'];
-        $dish -> type = $data['type'];
-        
         
         $dish -> restaurant()->associate($restaurant_id);
         
@@ -91,7 +89,9 @@ class DishController extends Controller
      */
     public function edit($id)
     {
-        //
+        $dish = Dish :: find($id);
+
+        return view('dishes.edit', compact('dish'));
     }
 
     /**
@@ -103,7 +103,30 @@ class DishController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $data = $request -> all();
+        
+        $restaurant_id = $request->user()->restaurant->id;
+        
+        $dish = Dish:: find($id);
+
+        $dish -> name = $data['name'];
+        $dish -> description = $data['description'];
+        $dish -> price = $data['price'];
+        $dish -> aviability = $data['aviability'];
+        
+        if($request->hasFile('image'))
+        {
+            $img = $data['image'];
+            $img_path = Storage :: disk('public') -> put('images', $img);
+            $dish -> image = $img_path;
+        }
+
+        
+        $dish -> save();
+        
+
+        return redirect() -> route('restaurant.index');
     }
 
     /**

@@ -51,7 +51,11 @@ Route::middleware('auth')->group(function () {
     Route::post('/dish/create', [DishController::class , 'store'])
         ->name('dish.store');
 
-  
+    Route::get('/{id}/edit', [DishController ::class, 'edit'])
+        ->name('dish.edit');
+    
+    Route::put('/{id}/edit', [DishController :: class, 'update'])
+        ->name('dish.update');
 
     Route::get('/dish/{id}', [DishController :: class, 'show'])
         ->name('dish.show');

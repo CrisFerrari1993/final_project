@@ -15,7 +15,6 @@
     @else
         <h2>non disponibile</h2>
     @endif
-    <h3>{{$dish ->type}}</h3>
 
     
 
