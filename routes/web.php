@@ -22,7 +22,7 @@ Route::get('/welcome', function () {
     return view('welcome');
 })->name('welcome');
 
-Route::get('/', function () {
+Route::get('/dashboard', function () {
     return view('/dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
@@ -49,4 +49,4 @@ Route::middleware('auth')->group(function () {
         ->name('dish.create');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
