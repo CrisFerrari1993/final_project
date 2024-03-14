@@ -34,7 +34,7 @@ class DishController extends Controller
 
         $dishes = Dish :: all();
 
-        return view('restaurant.dish', compact('dishes'));
+        return view('dishes.dish', compact('dishes'));
 
     }
 
