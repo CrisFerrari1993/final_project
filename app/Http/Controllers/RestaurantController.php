@@ -16,7 +16,7 @@ class RestaurantController extends Controller
         $restaurants = Restaurant :: all();
         $users = User :: all();
 
-        return view('restaurants.index', compact('restaurants', 'users'));
+        return view('restaurant.index', compact('restaurants', 'users'));
     }
 
     public function create(){
@@ -25,7 +25,7 @@ class RestaurantController extends Controller
         $categories = Category :: all();
         $dishes = Dish :: all();
 
-        return view('restaurants.create', compact('restaurants', 'categories', 'dishes'));
+        return view('restaurant.create', compact('restaurants', 'categories', 'dishes'));
 
 
     }

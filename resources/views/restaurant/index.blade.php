@@ -1,9 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="text-center m-4">
-    <button class="btn btn-primary"><a class="text-white" href="#"> + Add restaurant</a></button>
-</div>
+@if (auth()->user()->restaurant)
+    <div class="text-center m-4">
+        <button class="btn btn-primary"><a class="text-white" href="{{route('restaurant.create')}}"> + Add dish</a></button>
+    </div>
     <ul>
         @foreach ($restaurants as $restaurant)
             @auth
@@ -17,4 +18,9 @@
             @endauth    
         @endforeach
     </ul>
+@else
+<div class="text-center m-4">
+    <button class="btn btn-primary"><a class="text-white" href="{{route('restaurant.create')}}"> + Add restaurant</a></button>
+</div>
+@endif
 @endsection
