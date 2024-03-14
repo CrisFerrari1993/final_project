@@ -5,7 +5,7 @@
     <h1>Create new restaurant</h1>
 
     <!-- form -->
-    <form action="{{ route('restaurant.store') }}" method="POST">
+    <form action="{{ route('restaurant.store') }}" method="POST" enctype="multipart/form-data">
 
     @csrf
     @method('POST')
