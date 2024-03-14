@@ -31,7 +31,16 @@
             <textarea name="description" id="description" cols="30" rows="10"></textarea>
 
             <label for="image">Aggiungi un'immagine al piatto</label>
-            <input id="image" type="image" width="100" />
+            <input type="file" name="image" id="image">
+
+            <label for="price">Prezzo</label>
+            <input type="number" name="price" id="price">
+
+            <label for="aviability">Disponibilità attuale</label>
+            <input type="radio" name="aviability" id="aviability">Si
+            <input type="radio" name="aviability" id="aviability">No
+            
+            <input type="submit" value="Crea">
         </form>
     </div>
 @endsection
