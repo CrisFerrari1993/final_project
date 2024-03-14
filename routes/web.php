@@ -45,8 +45,10 @@ Route::middleware('auth')->group(function () {
 
 
     // rotta protette da auth per i piatti
-    route::get('dish/create', [DishController::class , 'create'])
+    Route::get('/dish/create', [DishController::class , 'create'])
         ->name('dish.create');
+    Route::post('/dish/create', [DishController::class , 'store'])
+        ->name('dish.store');
 });
 
 require __DIR__.'/auth.php';

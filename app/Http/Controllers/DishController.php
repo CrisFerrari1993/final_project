@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facedes\Auth;
+
 use App\Models\Restaurant;
-use App\Models\User;
-use App\Models\Category;
 use App\Models\Dish;
-use App\Models\Order;
 
 
 class DishController extends Controller
@@ -31,7 +32,9 @@ class DishController extends Controller
     public function create()
     {
 
-        return view('restaurant.dish');
+        $dishes = Dish :: all();
+
+        return view('restaurant.dish', compact('dishes'));
 
     }
 
@@ -43,7 +46,27 @@ class DishController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request -> all();
+        $restaurant_id = $request->user()->restaurant->id;
+
+        $img = $data['image'];
+        $img_path = Storage :: disk('public') -> put('images', $img);
+
+        $dish = new Dish();
+
+        $dish -> name = $data['name'];
+        $dish -> image = $img_path;
+        $dish -> description = $data['description'];
+        $dish -> price = $data['price'];
+        $dish -> aviability = $data['aviability'];
+        $dish -> type = $data['type'];
+        
+        
+        $dish -> restaurant()->associate($restaurant_id);
+        
+        $dish -> save();
+
+        return redirect() -> route('restaurant.index');
     }
 
     /**

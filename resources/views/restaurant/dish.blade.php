@@ -7,8 +7,7 @@
 
         <h1>Aggiungi un nuovo piatto al tuo menu </h1>
 
-        <form action="" method="POST" class="d-flex flex-column col-6 justify-content-center align-items-center">
-
+        <form action="{{route('dish.store')}}" method="POST" class="d-flex flex-column col-6 justify-content-center align-items-center" enctype="multipart/form-data">
 
             @csrf
             @method('POST')
@@ -37,8 +36,8 @@
             <input type="number" name="price" id="price">
 
             <label for="aviability">Disponibilità attuale</label>
-            <input type="radio" name="aviability" id="aviability">Si
-            <input type="radio" name="aviability" id="aviability">No
+            <input type="radio" name="aviability" id="aviability" value="1">Si
+            <input type="radio" name="aviability" id="aviability" value="0">No
             
             <input type="submit" value="Crea">
         </form>
