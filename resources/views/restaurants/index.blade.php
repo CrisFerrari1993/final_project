@@ -1,7 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-    
+<div class="text-center m-4">
+    <button class="btn btn-primary"><a class="text-white" href="#"> + Add restaurant</a></button>
+</div>
     <ul>
         @foreach ($restaurants as $restaurant)
             @auth
