@@ -24,6 +24,12 @@
                         <br>
                         <strong>Cognome del proprietario</strong>
                         <span>{{$restaurant->user->lastName}}</span>
+                        <br>
+                        <strong>Logo ristorante</strong>
+                        <img src="{{ asset('storage/' . $restaurant->logo) }}" alt="logo">
+                        <br>
+                        <strong>Wallpaper ristorante</strong>
+                        <img src="{{ asset('storage/' . $restaurant -> wallpaper) }}" alt="wallpapaer">
                     </li>
                 @endif
             @endauth    
