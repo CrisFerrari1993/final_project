@@ -4,6 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\Restaurant;
+use App\Models\User;
+use App\Models\Category;
+use App\Models\Dish;
+use App\Models\Order;
+
+
 class DishController extends Controller
 {
     /**
@@ -23,7 +30,9 @@ class DishController extends Controller
      */
     public function create()
     {
-        //
+
+        return view('restaurant.dish');
+
     }
 
     /**
