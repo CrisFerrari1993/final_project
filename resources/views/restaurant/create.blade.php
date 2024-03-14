@@ -23,8 +23,8 @@
 
     <br>
     <br>
+    
     <!-- input restaurant logo -->
-    <!-- !!!!! AGGIUNGERE  PASSAGGIO FILE STORAGE !!!!! -->
     <label for="logo">Logo ristorante</label>
     <input type="file" name="logo" id="logo">
 
