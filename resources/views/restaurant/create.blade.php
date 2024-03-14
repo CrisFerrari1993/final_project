@@ -62,6 +62,8 @@
         <br>
     @endforeach
 
+    <input type="submit" value="Crea nuovo ristorante">
+
     </form>
 
 @endsection
