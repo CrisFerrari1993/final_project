@@ -14,12 +14,12 @@ use App\Http\Controllers\RestaurantController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/welcome', function () {
+    return view('welcome');
+})->name('welcome');
 
-
-
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
+Route::get('/', function () {
+    return view('/dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {

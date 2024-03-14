@@ -25,7 +25,7 @@
 
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
+                <a class="navbar-brand d-flex align-items-center" href="{{ url('welcome') }}">
                     <div class="logo_laravel">
                         <svg viewBox="0 0 651 192" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 150px">
                             <g clip-path="url(#clip0)" fill="#EF3B2D">

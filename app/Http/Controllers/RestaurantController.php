@@ -12,13 +12,14 @@ use App\Models\Order;
 
 class RestaurantController extends Controller
 {
+    //Index ('Dashboard")
     public function index(){
         $restaurants = Restaurant :: all();
         $users = User :: all();
 
         return view('restaurant.index', compact('restaurants', 'users'));
     }
-
+    //Create restaurant
     public function create(){
 
         $restaurants = Restaurant :: all();
@@ -26,7 +27,6 @@ class RestaurantController extends Controller
         $dishes = Dish :: all();
 
         return view('restaurant.create', compact('restaurants', 'categories', 'dishes'));
-
 
     }
 }
