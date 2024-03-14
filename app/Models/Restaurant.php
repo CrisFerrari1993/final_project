@@ -13,30 +13,30 @@ class Restaurant extends Model
     use HasFactory;
 
     // One to one relation
-    public function user(): BelongsTo 
+    public function user(): BelongsTo
     {
 
-        return $this -> belongsTo(User :: class);
+        return $this->belongsTo(User::class);
 
     }
     // One to many relation
-    public function dishes(): HasMany 
+    public function dishes(): HasMany
     {
 
-        return $this -> hasMany(Dish :: class);
+        return $this->hasMany(Dish::class);
 
     }
-    public function orders(): HasMany 
+    public function orders(): HasMany
     {
 
-        return $this -> hasMany(Order :: class);
+        return $this->hasMany(Order::class);
 
     }
     // Many to many relation
-    public function categories(): BelonsToMany
+    public function categories(): BelongsToMany
     {
 
-        return $this -> belongsToMany(Category :: class);
+        return $this->belongsToMany(Category::class);
 
     }
 }

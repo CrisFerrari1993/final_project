@@ -22,16 +22,19 @@ Route::get('/welcome', function () {
     return view('welcome');
 })->name('welcome');
 
-Route::get('/', function () {
+Route::get('/dashboard', function () {
     return view('/dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/',[RestaurantController :: class, 'index'])
+    Route::get('/', [RestaurantController::class, 'index'])
         ->name('restaurant.index');
 
-    Route::get('/create', [RestaurantController::class , 'create'])
+    Route::get('/create', [RestaurantController::class, 'create'])
         ->name('restaurant.create');
+
+    Route::post('/', [RestaurantController::class, 'store'])
+        ->name('restaurant.store');
 
     Route::get('/profile', [ProfileController::class, 'edit'])
         ->name('profile.edit');
@@ -43,12 +46,11 @@ Route::middleware('auth')->group(function () {
         ->name('profile.destroy');
 
 
-
     // rotta protette da auth per i piatti
-    Route::get('/dish/create', [DishController::class , 'create'])
+    route::get('dish/create', [DishController::class , 'create'])
         ->name('dish.create');
     Route::post('/dish/create', [DishController::class , 'store'])
         ->name('dish.store');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
