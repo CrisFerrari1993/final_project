@@ -36,12 +36,12 @@
             <input type="number" name="price" id="price">
 
             <label for="aviability">Disponibilità attuale</label>
-            <dir class="container d-flex justify-content-center">
+            <div class="container d-flex justify-content-center">
                 <label for="aviability">Si</label>
                 <input class="m-2" type="radio" name="aviability" id="aviability" value="1">
                 <label for="aviability">No</label>
                 <input class="m-2" type="radio" name="aviability" id="aviability" value="0">
-            </dir>
+            </div>
             
             <input type="submit" value="Crea">
         </form>
