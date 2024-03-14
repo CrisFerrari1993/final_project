@@ -77,7 +77,9 @@ class DishController extends Controller
      */
     public function show($id)
     {
-        //
+        $dish = Dish :: find($id);
+
+        return view('dishes.show', compact('dish'));
     }
 
     /**
@@ -111,6 +113,11 @@ class DishController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $dish = Dish:: find($id);
+
+        $dish -> name() -> detach();
+        $dish -> delete();
+
+        return redirect() -> route('dish.index');
     }
 }

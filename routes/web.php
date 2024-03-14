@@ -20,13 +20,11 @@ use App\Models\Restaurant;
 */
 Route::get('/welcome', function () {
     return view('welcome');
-})->name('welcome');
-
-Route::get('/dashboard', function () {
-    return view('/dashboard');
+    
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
+
     Route::get('/', [RestaurantController::class, 'index'])
         ->name('restaurant.index');
 
@@ -49,8 +47,17 @@ Route::middleware('auth')->group(function () {
     // rotta protette da auth per i piatti
     route::get('dish/create', [DishController::class , 'create'])
         ->name('dish.create');
+
     Route::post('/dish/create', [DishController::class , 'store'])
         ->name('dish.store');
+
+    Route::get('/dish/{id}', [DishController :: class, 'show'])
+        ->name('dish.show');
+
+    Route::delete('/dish/{id}', [DishController :: class, 'destroy'])
+        ->name('dish.destroy');
+
+
 });
 
 require __DIR__ . '/auth.php';
