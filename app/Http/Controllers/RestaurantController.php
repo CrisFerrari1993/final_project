@@ -17,9 +17,9 @@ class RestaurantController extends Controller
     //Index ('Dashboard")
     public function index(){
         $restaurants = Restaurant :: all();
-        $users = User :: all();
-
-        return view('restaurant.index', compact('restaurants', 'users'));
+        $user = User :: all();
+        $dishes = Dish :: all();
+        return view('restaurant.index', compact('restaurants', 'user', 'dishes'));
     }
     //Create restaurant
     public function create(){
