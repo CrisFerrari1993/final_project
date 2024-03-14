@@ -12,7 +12,17 @@
                 @if (auth()->user()->id == $restaurant->user_id)
                     <li>
                         <h4>{{$restaurant->name}}</h4>
+                        <strong>Indirizzo ristorante: </strong>
+                        <span>{{ $restaurant->adress }}</span>
+                        <br>
+                        <strong>Partita iva: </strong>
+                        <span>{{ $restaurant->vat_num }}</span>
+                        <br>
                         <img src="{{$restaurant->wallpaper}}" alt="">
+                        <strong>Nome del proprietario</strong>
+                        <span>{{$restaurant->user->firstName}}</span>
+                        <br>
+                        <strong>Cognome del proprietario</strong>
                         <span>{{$restaurant->user->lastName}}</span>
                     </li>
                 @endif
