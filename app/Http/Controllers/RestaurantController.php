@@ -46,14 +46,14 @@ class RestaurantController extends Controller
         // check img
         if ($request->hasFile('logo')) {
             $logo = $data['logo'];
-            $logo_path = Storage::put('uploads', $data['logo']);
+            $logo_path = Storage::put('images', $data['logo']);
         } else {
             $logo_path = null;
         }
 
         if ($request->hasFile('wallpaper')) {
             $wallpaper = $data['wallpaper'];
-            $wallpaper_path = Storage::put('uploads', $data['wallpaper']);
+            $wallpaper_path = Storage::put('images', $data['wallpaper']);
         } else {
             $wallpaper_path = null;
         }
