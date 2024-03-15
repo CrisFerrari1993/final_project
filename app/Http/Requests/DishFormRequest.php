@@ -35,10 +35,10 @@ class DishFormRequest extends FormRequest
     {
 
         return [
-            'name.required' => "Perfavore inserire nome piatto",
-            'price.required' => "Perfavore inserire il prezzo del piatto",
-            'price.gt' => "Il prezzo deve essere un valore positivo",
-            'aviability.required' => "Indicare la disponibilità attuale"
+            'name.required' => "Per favore inserire nome piatto",
+            'price.required' => "Per favore inserire il prezzo del piatto",
+            'price.gt' => "Per favore inserire un prezzo positivo",
+            'aviability.required' => "Pe rfavore indicare la disponibilità attuale"
         ];
     }
 }
