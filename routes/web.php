@@ -19,7 +19,12 @@ use App\Models\Restaurant;
 |
 */
 
-Route::get('/', [RestaurantController :: class, 'index'])->name('restaurant.index');
+Route::get('welcome', function () {
+    return view('welcome');
+    
+});
+
+Route::get('/welcome', [RestaurantController :: class, 'index'])->name('restaurant.index');
 
 
 Route::get('/welcome', function () {

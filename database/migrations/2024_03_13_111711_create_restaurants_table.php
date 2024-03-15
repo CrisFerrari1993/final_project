@@ -17,6 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('name', 64)->required();
             $table->string('adress', 128)->required();
+            $table->string('timetable', 128)->required();
+            $table->string('phone', 128)->required();
             $table->string('logo')->nullable();
             $table->string('wallpaper')->nullable();
             $table->string('vat_num', 16)->unique()->required();
