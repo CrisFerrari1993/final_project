@@ -4,6 +4,7 @@
 
 @section('content')
 
+    <!-- messaggi di errore in caso di mancata validazione -->
     @if ($errors->any())
     <div class="alert alert-danger">
         <ul>
