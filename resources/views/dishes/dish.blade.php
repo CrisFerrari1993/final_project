@@ -3,6 +3,18 @@
 @extends('layouts.app')
 
 @section('content')
+
+    <!-- messaggi di errore in caso di mancata validazione -->
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
+
     <div class="container d-flex justify-content-center align-items-center col-12 flex-column">
 
         <h1>Aggiungi un nuovo piatto al tuo menu </h1>
