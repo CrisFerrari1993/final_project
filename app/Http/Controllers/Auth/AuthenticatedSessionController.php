@@ -10,6 +10,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 
+// import dish mode
+use App\Models\Dish;
+
 class AuthenticatedSessionController extends Controller
 {
     /**

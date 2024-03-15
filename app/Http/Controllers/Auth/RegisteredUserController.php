@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
 
+use App\Models\Category;
+use App\Models\Restaurant;
+
+
 class RegisteredUserController extends Controller
 {
     /**
@@ -20,7 +24,8 @@ class RegisteredUserController extends Controller
      */
     public function create(): View
     {
-        return view('auth.register');
+        $categories = Category::all();
+        return view('auth.register', compact('categories'));
     }
 
     /**
@@ -30,10 +35,13 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
+
+
+
         $request->validate([
             'firstName' => ['required', 'string', 'max:255'],
             'lastName' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:' . User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
@@ -47,6 +55,39 @@ class RegisteredUserController extends Controller
         event(new Registered($user));
 
         Auth::login($user);
+
+        $data = $request->all();
+
+        $user = $request->user();
+
+        $newRestaurant = new Restaurant();
+
+        // check img
+        if ($request->hasFile('logo')) {
+            $logo = $data['logo'];
+            $logo_path = Storage::put('images', $data['logo']);
+        } else {
+            $logo_path = null;
+        }
+
+        if ($request->hasFile('wallpaper')) {
+            $wallpaper = $data['wallpaper'];
+            $wallpaper_path = Storage::put('images', $data['wallpaper']);
+        } else {
+            $wallpaper_path = null;
+        }
+
+        $newRestaurant->name = $data['name'];
+        $newRestaurant->adress = $data['adress'];
+        $newRestaurant->adress = $data['adress'];
+        $newRestaurant->user()->associate($user);
+        $newRestaurant->vat_num = $data['vat_num'];
+        $newRestaurant->logo = $logo_path;
+        $newRestaurant->wallpaper = $wallpaper_path;
+
+        $newRestaurant->save();
+
+        $newRestaurant->categories()->attach($data['category_id']);
 
         return redirect(RouteServiceProvider::HOME);
     }

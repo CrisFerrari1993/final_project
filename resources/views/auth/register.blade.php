@@ -67,6 +67,57 @@
                             </div>
                         </div>
 
+                        <!-- input restaurant name -->
+                        <label for="name">Nome ristorante</label>
+                                <input type="text" name="name" id="name">
+
+                                <br>
+                                <br>
+
+                                <!-- input restaurant adress -->
+                                <label for="adress">Indirizzo ristorante</label>
+                                <input type="text" name="adress" id="adress">
+
+                                <br>
+                                <br>
+                                
+                                <!-- input restaurant logo -->
+                                <label for="logo">Logo ristorante</label>
+                                <input type="file" name="logo" id="logo">
+
+                                <br>
+                                <br>
+
+                                <!-- input restaurant wallpaper -->
+                                <label for="wallpaper">Wallpaper ristorante</label>
+                                <input type="file" name="wallpaper" id="wallpaper">
+
+                                <br>
+                                <br>
+
+                                <!-- input restaurant vat num -->
+                                <label for="vat_num">P.iva ristorante</label>
+                                <input type="text" name="vat_num" id="vat_num">
+                                
+                                <br>
+                                <br>
+
+                                <!-- input for choose category -->
+                                <label for="category">Categoria ristorante</label>
+                                @foreach ($categories as $category)
+                                    <input
+                                        type="checkbox"
+                                        name="category_id[]"
+                                        id="{{ 'category_id_' . $category->id }}"
+                                        value="{{ $category->id }}"
+                                    >
+                                    <label
+                                        for="{{ 'category_id_' . $category->id }}">
+                                        {{ $category->name }}
+                                    </label>
+                                    <br>
+                                @endforeach
+
                         <div class="mb-4 row">
                             <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
 
