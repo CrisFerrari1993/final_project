@@ -15,15 +15,19 @@ use App\Models\Order;
 class RestaurantController extends Controller
 {
     //Index ('Dashboard")
-    public function index(Request $request){
+    public function index(Request $request)
+    {
         $restaurant = $request->user()->restaurant;
-        $categories = $request->user()->restaurant->categories();
+        $categories = Category::all();
+
         $user = $request->user();
-        $dishes = Dish :: all();
+        $dishes = Dish::all();
+        // aggiungere compact categories
         return view('restaurant.index', compact('restaurant', 'user', 'dishes', 'categories'));
     }
     //Create restaurant
-    public function create(){
+    public function create()
+    {
 
         $restaurants = Restaurant::all();
         $categories = Category::all();
