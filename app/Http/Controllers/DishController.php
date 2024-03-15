@@ -8,6 +8,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facedes\Auth;
 
+// regole di validazione
+use App\Http\Requests\DishFormRequest;
+
 
 use App\Models\Restaurant;
 use App\Models\Dish;
@@ -33,7 +36,7 @@ class DishController extends Controller
     public function create()
     {
 
-        $dishes = Dish :: all();
+        $dishes = Dish::all();
 
         return view('dishes.dish', compact('dishes'));
 
@@ -45,27 +48,27 @@ class DishController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(DishFormRequest $request)
     {
-        $data = $request -> all();
+        $data = $request->all();
         $restaurant_id = $request->user()->restaurant->id;
 
         $img = $data['image'];
-        $img_path = Storage :: disk('public') -> put('images', $img);
+        $img_path = Storage::disk('public')->put('images', $img);
 
         $dish = new Dish();
 
-        $dish -> name = $data['name'];
-        $dish -> image = $img_path;
-        $dish -> description = $data['description'];
-        $dish -> price = $data['price'];
-        $dish -> aviability = $data['aviability'];
-        
-        $dish -> restaurant()->associate($restaurant_id);
-        
-        $dish -> save();
+        $dish->name = $data['name'];
+        $dish->image = $img_path;
+        $dish->description = $data['description'];
+        $dish->price = $data['price'];
+        $dish->aviability = $data['aviability'];
 
-        return redirect() -> route('restaurant.index');
+        $dish->restaurant()->associate($restaurant_id);
+
+        $dish->save();
+
+        return redirect()->route('restaurant.index');
     }
 
     /**
@@ -76,7 +79,7 @@ class DishController extends Controller
      */
     public function show($id)
     {
-        $dish = Dish :: find($id);
+        $dish = Dish::find($id);
 
         return view('dishes.show', compact('dish'));
     }
@@ -89,7 +92,7 @@ class DishController extends Controller
      */
     public function edit($id)
     {
-        $dish = Dish :: find($id);
+        $dish = Dish::find($id);
 
         return view('dishes.edit', compact('dish'));
     }
@@ -101,32 +104,31 @@ class DishController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(DishFormRequest $request, $id)
     {
 
-        $data = $request -> all();
-        
-        $restaurant_id = $request->user()->restaurant->id;
-        
-        $dish = Dish:: find($id);
+        $data = $request->all();
 
-        $dish -> name = $data['name'];
-        $dish -> description = $data['description'];
-        $dish -> price = $data['price'];
-        $dish -> aviability = $data['aviability'];
-        
-        if($request->hasFile('image'))
-        {
+        $restaurant_id = $request->user()->restaurant->id;
+
+        $dish = Dish::find($id);
+
+        $dish->name = $data['name'];
+        $dish->description = $data['description'];
+        $dish->price = $data['price'];
+        $dish->aviability = $data['aviability'];
+
+        if ($request->hasFile('image')) {
             $img = $data['image'];
-            $img_path = Storage :: disk('public') -> put('images', $img);
-            $dish -> image = $img_path;
+            $img_path = Storage::disk('public')->put('images', $img);
+            $dish->image = $img_path;
         }
 
-        
-        $dish -> save();
-        
 
-        return redirect() -> route('restaurant.index');
+        $dish->save();
+
+
+        return redirect()->route('restaurant.index');
     }
 
     /**
@@ -138,8 +140,8 @@ class DishController extends Controller
     public function destroy($id)
     {
         $dish = Dish::findOrFail($id);
-        $dish -> delete();
+        $dish->delete();
 
-        return redirect() -> route('restaurant.index');
+        return redirect()->route('restaurant.index');
     }
 }

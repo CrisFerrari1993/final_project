@@ -1,6 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
+
+<!-- messaggi di errore in caso di mancata validazione -->
+@if ($errors->any())
+<div class="alert alert-danger">
+    <ul>
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
+@endif
+
 <form method="POST" enctype="multipart/form-data">
     @csrf
     @method('PUT')
