@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
 
+use App\Http\Requests\RestaurantFormRequest;
+
 use Illuminate\Support\Facades\Storage;
 
 use App\Models\Category;
@@ -35,7 +37,7 @@ class RegisteredUserController extends Controller
      *
      * @throws \Illuminate\Validation\ValidationException
      */
-    public function store(Request $request): RedirectResponse
+    public function store(RestaurantFormRequest $request): RedirectResponse
     {
 
 

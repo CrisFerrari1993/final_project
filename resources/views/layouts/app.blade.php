@@ -25,7 +25,7 @@
 
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand d-flex align-items-center" href="{{ url('welcome') }}">
+                <a class="navbar-brand d-flex align-items-center" href="{{ route('restaurant.index') }}">
                     <div class="logo_laravel">
                         <img class="nav_logo" src="https://dhhvideos.s3.eu-central-1.amazonaws.com/Delivery-Hero-Comet.png" alt="">
                         <h3><strong>DeliveBoo</strong></h3>
