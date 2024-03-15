@@ -2,19 +2,21 @@
 
 @section('content')
 
-    <h1>{{$dish ->name}}</h1>
+    <div class="container text-center">
+        <h1 class="mt-3"><strong>{{$dish ->name}}</strong></h1>
 
-    <img src="{{asset('storage/' . $dish->image)}}" alt="">
+        <img class="show" src="{{asset('storage/' . $dish->image)}}" alt="">
 
-    <p>{{$dish ->description}}</p>
+        <p>{{$dish ->description}}</p>
 
-    <h3>{{$dish ->price}}</h3>
+        <h3>€ {{$dish ->price}}</h3>
 
-    @if ($dish ->aviability)
-        <h2>disponibile</h2>
-    @else
-        <h2>non disponibile</h2>
-    @endif
+        @if ($dish ->aviability)
+        <h2>Visibile</h2>
+        @else
+        <h2>Non visibile</h2>
+        @endif
+    </div>
 
     
 
