@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
 
+use Illuminate\Support\Facades\Storage;
+
 use App\Models\Category;
 use App\Models\Restaurant;
 
