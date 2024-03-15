@@ -26,7 +26,8 @@ class DishFormRequest extends FormRequest
         return [
             'name' => 'required',
             'price' => 'required|gt:0',
-            'aviability' => 'required'
+            'aviability' => 'required',
+            'image' => 'required',
         ];
     }
 
@@ -36,9 +37,10 @@ class DishFormRequest extends FormRequest
 
         return [
             'name.required' => "Per favore inserire nome piatto",
+            'image.required' => "Per favore inserire un'immagine",
             'price.required' => "Per favore inserire il prezzo del piatto",
             'price.gt' => "Per favore inserire un prezzo positivo",
-            'aviability.required' => "Pe rfavore indicare la disponibilità attuale"
+            'aviability.required' => "Per favore indicare la disponibilità attuale",
         ];
     }
 }
