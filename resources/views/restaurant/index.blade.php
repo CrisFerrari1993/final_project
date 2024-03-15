@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-@if (auth()->user()->restaurant)
+@if ($user->id === $user->restaurant->user_id)
     <div id="jumbotron">
         <img class="wallpaper" src="{{asset('storage/' . auth()->user()->restaurant ->wallpaper)}}" alt="">
     </div>
@@ -11,6 +11,9 @@
         <div id='resturant_info'>
             <h6><strong>Indirizzo: </strong>{{auth()->user()->restaurant->adress}}</h6>
             <h6><strong>P. iva:</strong> {{auth()->user()->restaurant->vat_num}}</h6>
+            @foreach ($restaurant->categories as $item)
+            <span class="badge bg-primary">{{$item->name}}</span>
+            @endforeach
         </div>
     </div>
     <div class="text-center m-4">

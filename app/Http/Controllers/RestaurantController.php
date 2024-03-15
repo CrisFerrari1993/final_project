@@ -15,11 +15,12 @@ use App\Models\Order;
 class RestaurantController extends Controller
 {
     //Index ('Dashboard")
-    public function index(){
-        $restaurants = Restaurant :: all();
-        $user = User :: all();
+    public function index(Request $request){
+        $restaurant = $request->user()->restaurant;
+        $categories = $request->user()->restaurant->categories();
+        $user = $request->user();
         $dishes = Dish :: all();
-        return view('restaurant.index', compact('restaurants', 'user', 'dishes'));
+        return view('restaurant.index', compact('restaurant', 'user', 'dishes', 'categories'));
     }
     //Create restaurant
     public function create(){
