@@ -2,9 +2,11 @@
 
 @section('content')
 @if (auth()->user()->restaurant)
-    <img class="wallpaper" src="{{asset('storage/' . auth()->user()->restaurant ->wallpaper)}}" alt="">
-    <div class="d-flex align-items-center">
-        <img class="border w-5" src="{{asset('storage/' . auth()->user()->restaurant ->logo)}}" alt="">
+    <div id="jumbotron">
+        <img class="wallpaper" src="{{asset('storage/' . auth()->user()->restaurant ->wallpaper)}}" alt="">
+    </div>
+    <div class="d-flex align-items-center restaurant_card">
+        <img class="border w-5 card" src="{{asset('storage/' . auth()->user()->restaurant ->logo)}}" alt="">
         <h1 class="m-0">{{auth()->user()->restaurant->name}}</h1>
     </div>
     <div class="text-center m-4">

@@ -18,10 +18,16 @@ use App\Models\Restaurant;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+Route::get('/', [RestaurantController :: class, 'index'])->name('restaurant.index');
+
+
 Route::get('/welcome', function () {
-    return view('welcome');
+    return view('restaurant.index');
     
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->middleware(['auth', 'verified'])->name('/welcome');
+
+
 
 Route::middleware('auth')->group(function () {
 
