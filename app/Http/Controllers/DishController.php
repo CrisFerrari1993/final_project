@@ -53,8 +53,14 @@ class DishController extends Controller
         $data = $request->all();
         $restaurant_id = $request->user()->restaurant->id;
 
-        $img = $data['image'];
-        $img_path = Storage::disk('public')->put('images', $img);
+        // $data['image']? $img = $data['image'] :null;
+        if ($request->hasFile('image')) {
+            $img = $data['image'];
+            $img_path = Storage::disk('public')->put('images', $img);
+        } else {
+            // Se non è stata fornita un'immagine, assegna un valore vuoto al percorso dell'immagine
+            $img_path = '';
+        }
 
         $dish = new Dish();
 

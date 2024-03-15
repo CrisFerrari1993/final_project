@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('dishes', function (Blueprint $table) {
             $table->id();
             $table->string('name', 128)->required();
-            $table->text('image')->nullable();
+            $table->text('image') -> nullable();
             $table->text('description')->required();
             $table->decimal('price')->required();
             $table->boolean('aviability');

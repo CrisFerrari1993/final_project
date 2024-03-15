@@ -27,7 +27,7 @@ class DishFormRequest extends FormRequest
             'name' => 'required',
             'price' => 'required|gt:0',
             'aviability' => 'required',
-            'image' => 'required',
+            //'image' => 'required',
         ];
     }
 
