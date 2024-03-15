@@ -11,8 +11,6 @@
         <div id='resturant_info'>
             <h6><strong>Indirizzo: </strong>{{auth()->user()->restaurant->adress}}</h6>
             <h6><strong>P. iva:</strong> {{auth()->user()->restaurant->vat_num}}</h6>
-            <h6><strong>Orari: </strong>{{auth()->user()->restaurant->timetable}}</h6>
-            <h6><strong>Telefono: </strong>+39 {{auth()->user()->restaurant->phone}}</h6>
             @foreach ($restaurant->categories as $item)
             <span class="badge bg-primary">{{$item->name}}</span>
             @endforeach
