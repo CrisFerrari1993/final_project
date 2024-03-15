@@ -13,7 +13,7 @@ class DishFormRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,16 @@ class DishFormRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'required',
+        ];
+    }
+
+    // messaggi in caso di dato inserito non valido
+    public function messages()
+    {
+
+        return [
+            'name.required' => "Perfavore inserire nome piatto"
         ];
     }
 }
