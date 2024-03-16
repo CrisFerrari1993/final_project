@@ -10,37 +10,18 @@
                 <img class="img-thumbnail" src="{{asset('storage/' . auth()->user()->restaurant->logo)}}" alt="">
             </div>
             <div class="col-sm-10 col-md-10 col-xl-10">
-                <h5 class="card-title"><strong>{{auth()->user()->restaurant->name}}</strong></h5>
+                <h5 class="card-title mt-5"><strong>{{auth()->user()->restaurant->name}}</strong></h5>
                 <p class="card-text m-0"><i class="fa-solid fa-location-dot"></i> {{auth()->user()->restaurant->adress}}</p>
                 <p class="card-text"><i class="fa-solid fa-cash-register"></i> P.IVA{{auth()->user()->restaurant->vat_num}}</p>
-                @foreach ($restaurant->categories as $item)
-                    <span class="badge rounded-pill bg-{{$item->name === 'Italiano' ? 'primary' : ''}}
-                                                       {{$item->name === 'Sushi' ? 'primary' : ''}}
-                                                       {{$item->name === 'Etnico' ? 'primary' : ''}}
-                                                       {{$item->name === 'Tipico' ? 'primary' : ''}}
-                                                       {{$item->name === 'Cinese' ? 'danger' : ''}}
-                                                       {{$item->name === 'Kebab' ? 'primary' : ''}}
-                                                       {{$item->name === 'Messicano' ? 'success' : ''}}">{{$item->name}}</span>
-                @endforeach
+                <div>
+                    @foreach ($restaurant->categories as $item)
+                        <span class="badge rounded-pill bg-dark text-white">{{$item->name}}</span>
+                    @endforeach
+                </div>
             </div>
         </div>
     </div>
   </div>
-<div id="jumbotron">
-    <img class="wallpaper" src="{{asset('storage/' . auth()->user()->restaurant->wallpaper)}}" alt="">
-</div>
-<div class=" m-auto d-flex align-items-center restaurant_card p-3 p_custom bg-light">
-    <img class="border w-5 logo" src="{{asset('storage/' . auth()->user()->restaurant->logo)}}" alt="">
-    <h1 class="mx-4"><strong></strong></h1>
-    <div id='resturant_info'>
-        <h6><strong>Indirizzo: </strong>{{auth()->user()->restaurant->adress}}</h6>
-        <h6><strong>P. iva:</strong> {{auth()->user()->restaurant->vat_num}}</h6>
-        
-        @foreach ($restaurant->categories as $item)
-        <span class="badge bg-primary">{{$item->name}}</span>
-        @endforeach
-    </div>
-</div>
 <div class="text-center">
     <button class="btn btn-primary"><a class="text-white" href="{{route('dish.create')}}"> Aggiungi piatto</a></button>
 </div>
