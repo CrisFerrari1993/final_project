@@ -14,7 +14,7 @@
 
 
                         <div class="mb-4 row">
-                            <label for="firstName" class="col-md-4 col-form-label text-md-right">{{ __('First Name') }}</label>
+                            <label for="firstName" class="col-md-4 col-form-label d-flex justify-content-center">{{ __('First Name') }}</label>
 
                             <div class="col-md-6">
                                 <input id="firstName" type="text" class="form-control @error('firstName') is-invalid @enderror" name="firstName" value="{{ old('firstName') }}" required autocomplete="firstName" autofocus>
@@ -28,7 +28,7 @@
                         </div>
 
                         <div class="mb-4 row">
-                            <label for="lastName" class="col-md-4 col-form-label text-md-right">{{ __('Last Name') }}</label>
+                            <label for="lastName" class="col-md-4 col-form-label d-flex justify-content-center">{{ __('Last Name') }}</label>
 
                             <div class="col-md-6">
                                 <input id="lastName" type="text" class="form-control @error('lastName') is-invalid @enderror" name="lastName" value="{{ old('lastName') }}" required autocomplete="lastName" autofocus>
@@ -42,7 +42,7 @@
                         </div>
 
                         <div class="mb-4 row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                            <label for="email" class="col-md-4 col-form-label d-flex justify-content-center">{{ __('E-Mail Address') }}</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
@@ -56,7 +56,7 @@
                         </div>
 
                         <div class="mb-4 row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                            <label for="password" class="col-md-4 col-form-label d-flex justify-content-center">{{ __('Password') }}</label>
 
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
@@ -66,6 +66,14 @@
                                     <strong>{{ $message }}</strong>
                                 </span>
                                 @enderror
+                            </div>
+                        </div>
+
+                        <div class="mb-4 row">
+                            <label for="password-confirm" class="col-md-4 col-form-label text-center">{{ __('Confirm Password') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                             </div>
                         </div>
 
@@ -80,63 +88,152 @@
                         @endif
 
                         <!-- input restaurant name -->
-                        <label for="name">Nome ristorante</label>
-                                <input type="text" name="name" id="name">
-
-                                <br>
-                                <br>
-
-                                <!-- input restaurant adress -->
-                                <label for="adress">Indirizzo ristorante</label>
-                                <input type="text" name="adress" id="adress">
-
-                                <br>
-                                <br>
-                                
-                                <!-- input restaurant logo -->
-                                <label for="logo">Logo ristorante</label>
-                                <input type="file" name="logo" id="logo">
-
-                                <br>
-                                <br>
-
-                                <!-- input restaurant wallpaper -->
-                                <label for="wallpaper">Wallpaper ristorante</label>
-                                <input type="file" name="wallpaper" id="wallpaper">
-
-                                <br>
-                                <br>
-
-                                <!-- input restaurant vat num -->
-                                <label for="vat_num">P.iva ristorante</label>
-                                <input type="text" name="vat_num" id="vat_num">
-                                
-                                <br>
-                                <br>
-
-                                <!-- input for choose category -->
-                                <label for="category">Categoria ristorante</label>
-                                @foreach ($categories as $category)
-                                    <input
-                                        type="checkbox"
-                                        name="category_id[]"
-                                        id="{{ 'category_id_' . $category->id }}"
-                                        value="{{ $category->id }}"
-                                    >
-                                    <label
-                                        for="{{ 'category_id_' . $category->id }}">
-                                        {{ $category->name }}
-                                    </label>
-                                    <br>
-                                @endforeach
-
                         <div class="mb-4 row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+                            <label for="name" class="col-md-4 col-form-label text-center" >Nome ristorante</label>
 
                             <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                                <input type="text" name="name" id="name" class="form-control">
+                                @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                         </div>
+                        
+                        <!-- input restaurant adress -->
+                        <div class="mb-4 row">
+                            <label for="adress" class="col-md-4 col-form-label text-center">Indirizzo ristorante</label>
+
+                            <div class="col-md-6">
+                                <input type="text" name="adress" id="adress" class="form-control">
+
+                                @error('password')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <!-- input restaurant logo -->
+                        <div class="mb-4 row">
+                            <label for="logo" class="col-md-4 col-form-label text-center">Logo ristorante</label>
+
+                            <div class="col-md-6">
+                                <input type="file" name="logo" id="logo" class="form-control">
+
+                                @error('password')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <!-- input restaurant wallpaper -->
+                        <div class="mb-4 row">
+                            <label for="wallpaper" class="col-md-4 col-form-label  text-center">Wallpaper ristorante</label>
+                            <div class="col-md-6">
+                                <input type="file" name="wallpaper" id="wallpaper" class="form-control">
+                                @error('password')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <!-- input restaurant vat num -->
+                        <div class="mb-4 row">
+                            <label for="vat_num" class="col-md-4 col-form-label text-center">P.iva ristorante</label>
+                            <div class="col-md-6">
+                                <input type="file" name="vat_num" id="vat_num" class="form-control">
+                                @error('password')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+
+
+                        <!-- input for choose category -->
+                        <div class="mb-4 row align-items-center">
+                            <label for="category" class="col-md-4 col-form-label text-center display-1">Categoria ristorante</label>
+                            <div class="col-md-6 d-flex justify-content-around flex-wrap p-1" style="min-height: 100px; gap: 5px;border: 1px solid #dee2e6; border-radius: 10px">
+                                @foreach ($categories as $category)
+                                    <div style="margin:5px">
+                                        <input
+                                            type="checkbox"
+                                            name="category_id[]"
+                                            id="{{ 'category_id_' . $category->id }}"
+                                            value="{{ $category->id }}"
+                                        >
+                                        <label
+                                            for="{{ 'category_id_' . $category->id }}">
+                                            {{ $category->name }}
+                                        </label>
+                                    </div>
+                                @endforeach
+                                @error('password')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+
+
+                        {{-- <label for="name">Nome ristorante</label>
+                        <input type="text" name="name" id="name">
+
+                        <br>
+                        <br>
+
+                        
+                        <label for="adress">Indirizzo ristorante</label>
+                        <input type="text" name="adress" id="adress">
+
+                        <br>
+                        <br>
+                        
+                        
+                        <label for="logo">Logo ristorante</label>
+                        <input type="file" name="logo" id="logo">
+
+                        <br>
+                        <br>
+
+                        
+                        <label for="wallpaper">Wallpaper ristorante</label>
+                        <input type="file" name="wallpaper" id="wallpaper">
+
+                        <br>
+                        <br>
+
+                        
+                        <label for="vat_num">P.iva ristorante</label>
+                        <input type="text" name="vat_num" id="vat_num">
+                        
+                        <br>
+                        <br>
+
+                        
+                        <label for="category">Categoria ristorante</label>
+                        @foreach ($categories as $category)
+                            <input
+                                type="checkbox"
+                                name="category_id[]"
+                                id="{{ 'category_id_' . $category->id }}"
+                                value="{{ $category->id }}"
+                            >
+                            <label
+                                for="{{ 'category_id_' . $category->id }}">
+                                {{ $category->name }}
+                            </label>
+                            <br>
+                        @endforeach --}}
 
                         <div class="mb-4 row mb-0">
                             <div class="col-md-6 offset-md-4">
