@@ -2,23 +2,6 @@
 
 @section('content')
 @if (auth()->user()->restaurant)
-    <div id="jumbotron">
-        <img class="wallpaper" src="{{asset('storage/' . auth()->user()->restaurant->wallpaper)}}" alt="">
-    </div>
-    <div class=" m-auto d-flex align-items-center restaurant_card p-3 p_custom bg-light">
-        <img class="border w-5 logo" src="{{asset('storage/' . auth()->user()->restaurant->logo)}}" alt="">
-        <h1 class="mx-4"><strong>{{auth()->user()->restaurant->name}}</strong></h1>
-        <div id='resturant_info'>
-            <h6><strong>Indirizzo: </strong>{{auth()->user()->restaurant->adress}}</h6>
-            <h6><strong>P. iva:</strong> {{auth()->user()->restaurant->vat_num}}</h6>
-            @foreach ($restaurant->categories as $item)
-            <span class="badge bg-primary">{{$item->name}}</span>
-            @endforeach
-        </div>
-    </div>
-    <div class="text-center m-4">
-        <button class="btn btn-primary"><a class="text-white" href="{{route('dish.create')}}"> + Add dish</a></button>
-    </div>
 
 <div id="jumbotron">
     <img class="wallpaper" src="{{asset('storage/' . auth()->user()->restaurant->wallpaper)}}" alt="">
@@ -68,7 +51,6 @@
         @endforeach
 
     </div>
-
-</div>
-
+    
+@endif
 @endsection
