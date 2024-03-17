@@ -148,7 +148,7 @@
                         <div class="mb-4 row justify-content-center">
                             <label for="vat_num" class="col-md-4 col-form-label  form-label">P.iva ristorante</label>
                             <div class="col-md-6">
-                                <input type="file" name="vat_num" id="vat_num" class="form-control">
+                                <input type="number" name="vat_num" id="vat_num" class="form-control">
                                 @error('password')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -183,6 +183,22 @@
                                 @enderror
                             </div>
                         </div>
+
+                        <div class="mb-4 row">
+                            <label class="col-md-4 col-form-label text-md-right" for="visibility">Visibilità</label>
+                            <div class="col-md-6">
+                                <label class="form-check-label" for="flexRadioDefault1">
+                                    Visibile
+                                <input class="form-check-input mx-1" type="radio" name="visibility" id="visibility" value="1"><br>
+                                <label class="form-check-label" for="flexRadioDefault1">
+                                    Non visibile
+                                <input class="form-check-input mx-1" type="radio" name="visibility" id="visibility" value="0"><br>
+                                @error('visibility')
+                                <span class='error'>
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
 
 
                         {{-- <label for="name">Nome ristorante</label>

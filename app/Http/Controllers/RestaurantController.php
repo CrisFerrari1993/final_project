@@ -68,6 +68,7 @@ class RestaurantController extends Controller
         $newRestaurant->adress = $data['adress'];
         $newRestaurant->user()->associate($user);
         $newRestaurant->vat_num = $data['vat_num'];
+        $newRestaurant->visibility = $data['visibility'];
         $newRestaurant->logo = $logo_path;
         $newRestaurant->wallpaper = $wallpaper_path;
 

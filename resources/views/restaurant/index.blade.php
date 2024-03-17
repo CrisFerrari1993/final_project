@@ -6,10 +6,21 @@
     <img class="wallpaper" src="{{asset('storage/' . auth()->user()->restaurant->wallpaper)}}" class="card-img-top" alt="...">
     <div class="card-body">
         <div class="row">
+
             <div class="col-sm-2 col-md-2 col-xl-2">
                 <img class="img-thumbnail" src="{{asset('storage/' . auth()->user()->restaurant->logo)}}" alt="">
             </div>
-            <div class="col-sm-10 col-md-10 col-xl-10">
+
+            <div class="col-sm-10 col-md-10 col-xl-10 position-relative">
+
+                {{-- pulsante di visibilita --}}
+                @if (auth()->user()->restaurant->visibility)
+                    <input type="button" value="Prenditi una pausa" class="btn btn-danger position-absolute top-0 end-0">
+                @else 
+                    <input type="button" value="Torna a lavoro" class="btn btn-success position-absolute top-0 end-0">
+                @endif
+
+
                 <h5 class="card-title mt-5"><strong>{{auth()->user()->restaurant->name}}</strong></h5>
                 <p class="card-text m-0"><i class="fa-solid fa-location-dot"></i> {{auth()->user()->restaurant->adress}}</p>
                 <p class="card-text"><i class="fa-solid fa-cash-register"></i> P.IVA{{auth()->user()->restaurant->vat_num}}</p>

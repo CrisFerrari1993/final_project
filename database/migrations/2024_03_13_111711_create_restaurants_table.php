@@ -21,6 +21,7 @@ return new class extends Migration {
             $table->string('logo')->nullable();
             $table->string('wallpaper')->nullable();
             $table->string('vat_num', 16)->unique()->required();
+            $table->boolean('visibility')->required();
             $table->timestamps();
         });
     }

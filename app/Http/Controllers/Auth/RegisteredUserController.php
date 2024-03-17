@@ -87,6 +87,8 @@ class RegisteredUserController extends Controller
         $newRestaurant->user()->associate($user);
         $newRestaurant->vat_num = $data['vat_num'];
         $newRestaurant->logo = $logo_path;
+        $newRestaurant->visibility = $data['visibility'];
+        
         $newRestaurant->wallpaper = $wallpaper_path;
 
         $newRestaurant->save();
