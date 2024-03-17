@@ -13,8 +13,8 @@
                         @method('POST')
 
 
-                        <div class="mb-4 row">
-                            <label for="firstName" class="col-md-4 col-form-label d-flex justify-content-center">{{ __('First Name') }}</label>
+                        <div class="mb-4 row justify-content-center">
+                            <label for="firstName" class="col-md-4 col-form-label  form-label">{{ __('First Name') }}</label>
 
                             <div class="col-md-6">
                                 <input id="firstName" type="text" class="form-control @error('firstName') is-invalid @enderror" name="firstName" value="{{ old('firstName') }}" required autocomplete="firstName" autofocus>
@@ -27,8 +27,8 @@
                             </div>
                         </div>
 
-                        <div class="mb-4 row">
-                            <label for="lastName" class="col-md-4 col-form-label d-flex justify-content-center">{{ __('Last Name') }}</label>
+                        <div class="mb-4 row justify-content-center">
+                            <label for="lastName" class="col-md-4 col-form-label  form-label">{{ __('Last Name') }}</label>
 
                             <div class="col-md-6">
                                 <input id="lastName" type="text" class="form-control @error('lastName') is-invalid @enderror" name="lastName" value="{{ old('lastName') }}" required autocomplete="lastName" autofocus>
@@ -41,8 +41,8 @@
                             </div>
                         </div>
 
-                        <div class="mb-4 row">
-                            <label for="email" class="col-md-4 col-form-label d-flex justify-content-center">{{ __('E-Mail Address') }}</label>
+                        <div class="mb-4 row justify-content-center">
+                            <label for="email" class="col-md-4 col-form-label  form-label">{{ __('E-Mail Address') }}</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
@@ -55,8 +55,8 @@
                             </div>
                         </div>
 
-                        <div class="mb-4 row">
-                            <label for="password" class="col-md-4 col-form-label d-flex justify-content-center">{{ __('Password') }}</label>
+                        <div class="mb-4 row justify-content-center">
+                            <label for="password" class="col-md-4 col-form-label  form-label">{{ __('Password') }}</label>
 
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
@@ -69,8 +69,8 @@
                             </div>
                         </div>
 
-                        <div class="mb-4 row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-center">{{ __('Confirm Password') }}</label>
+                        <div class="mb-4 row justify-content-center">
+                            <label for="password-confirm" class="col-md-4 col-form-label  form-label">{{ __('Confirm Password') }}</label>
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
@@ -88,11 +88,11 @@
                         @endif
 
                         <!-- input restaurant name -->
-                        <div class="mb-4 row">
-                            <label for="name" class="col-md-4 col-form-label text-center" >Nome ristorante</label>
+                        <div class="mb-4 row justify-content-center">
+                            <label for="name" class="col-md-4 col-form-label  form-label" >Nome ristorante</label>
 
                             <div class="col-md-6">
-                                <input type="text" name="name" id="name" class="form-control">
+                                <input type="text" name="name" id="name" class="form-control ">
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -102,8 +102,8 @@
                         </div>
                         
                         <!-- input restaurant adress -->
-                        <div class="mb-4 row">
-                            <label for="adress" class="col-md-4 col-form-label text-center">Indirizzo ristorante</label>
+                        <div class="mb-4 row justify-content-center">
+                            <label for="adress" class="col-md-4 col-form-label  form-label">Indirizzo ristorante</label>
 
                             <div class="col-md-6">
                                 <input type="text" name="adress" id="adress" class="form-control">
@@ -117,8 +117,8 @@
                         </div>
 
                         <!-- input restaurant logo -->
-                        <div class="mb-4 row">
-                            <label for="logo" class="col-md-4 col-form-label text-center">Logo ristorante</label>
+                        <div class="mb-4 row justify-content-center">
+                            <label for="logo" class="col-md-4 col-form-label  form-label">Logo ristorante</label>
 
                             <div class="col-md-6">
                                 <input type="file" name="logo" id="logo" class="form-control">
@@ -132,8 +132,8 @@
                         </div>
 
                         <!-- input restaurant wallpaper -->
-                        <div class="mb-4 row">
-                            <label for="wallpaper" class="col-md-4 col-form-label  text-center">Wallpaper ristorante</label>
+                        <div class="mb-4 row justify-content-center">
+                            <label for="wallpaper" class="col-md-4 col-form-label  form-label">Wallpaper ristorante</label>
                             <div class="col-md-6">
                                 <input type="file" name="wallpaper" id="wallpaper" class="form-control">
                                 @error('password')
@@ -145,8 +145,8 @@
                         </div>
 
                         <!-- input restaurant vat num -->
-                        <div class="mb-4 row">
-                            <label for="vat_num" class="col-md-4 col-form-label text-center">P.iva ristorante</label>
+                        <div class="mb-4 row justify-content-center">
+                            <label for="vat_num" class="col-md-4 col-form-label  form-label">P.iva ristorante</label>
                             <div class="col-md-6">
                                 <input type="file" name="vat_num" id="vat_num" class="form-control">
                                 @error('password')
@@ -159,8 +159,8 @@
 
 
                         <!-- input for choose category -->
-                        <div class="mb-4 row align-items-center">
-                            <label for="category" class="col-md-4 col-form-label text-center display-1">Categoria ristorante</label>
+                        <div class="mb-4 row  justify-content-center">
+                            <label for="category" class="col-md-4 col-form-label  form-label d-flex align-items-center">Categoria ristorante</label>
                             <div class="col-md-6 d-flex justify-content-around flex-wrap p-1" style="min-height: 100px; gap: 5px;border: 1px solid #dee2e6; border-radius: 10px">
                                 @foreach ($categories as $category)
                                     <div style="margin:5px">
@@ -235,8 +235,8 @@
                             <br>
                         @endforeach --}}
 
-                        <div class="mb-4 row mb-0">
-                            <div class="col-md-6 offset-md-4">
+                        <div class="mb-4 w-100 mb-0">
+                            <div class="d-flex justify-content-center">
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Register') }}
                                 </button>
