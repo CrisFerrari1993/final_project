@@ -55,7 +55,7 @@ Route::middleware('auth')->group(function () {
         ->name('profile.destroy');
 
 
-    // rotta protette da auth per i piatti
+    // rotte protette da auth per i piatti
     route::get('dish/create', [DishController::class , 'create'])
         ->name('dish.create');
 
@@ -73,6 +73,12 @@ Route::middleware('auth')->group(function () {
 
     Route::delete('/dish/{id}', [DishController :: class, 'destroy'])
         ->name('dish.destroy');
+
+
+    
+    // rotte protette per i ristoranti
+    Route::get('/restaurant/edit/{id}', [RestaurantController :: class, 'edit'])
+        ->name('restaurant.edit');
 
 
 });

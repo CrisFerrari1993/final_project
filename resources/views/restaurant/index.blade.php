@@ -14,16 +14,20 @@
             <div class="col-sm-10 col-md-10 col-xl-10 position-relative">
 
                 {{-- pulsante di visibilita --}}
-                @if (auth()->user()->restaurant->visibility)
-                    <input type="button" value="Prenditi una pausa" class="btn btn-danger position-absolute top-0 end-0">
+                @if (auth()->user()->restaurant->visibility) {{-- se visibility è vero --}}
+                    <button class="btn btn-danger me-2 position-absolute top-0 end-0">
+                        <a class="btn_link" href="{{route('restaurant.edit', $restaurant->id)}}">Prenditi una pausa</a>
+                    </button>
                 @else 
-                    <input type="button" value="Torna a lavoro" class="btn btn-success position-absolute top-0 end-0">
+                    <button class="btn btn-success me-2 position-absolute top-0 end-0">
+                        <a class="btn_link" href="{{route('restaurant.edit', $restaurant->id)}}">Torna a lavoro</a>
+                    </button>
                 @endif
 
 
                 <h5 class="card-title mt-5"><strong>{{auth()->user()->restaurant->name}}</strong></h5>
                 <p class="card-text m-0"><i class="fa-solid fa-location-dot"></i> {{auth()->user()->restaurant->adress}}</p>
-                <p class="card-text"><i class="fa-solid fa-cash-register"></i> P.IVA{{auth()->user()->restaurant->vat_num}}</p>
+                <p class="card-text"><i class="fa-solid fa-cash-register"></i> P.IVA {{auth()->user()->restaurant->vat_num}}</p>
                 <div>
                     @foreach ($restaurant->categories as $item)
                         <span class="badge rounded-pill bg-dark text-white">{{$item->name}}</span>

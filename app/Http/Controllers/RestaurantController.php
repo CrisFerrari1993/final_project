@@ -79,4 +79,14 @@ class RestaurantController extends Controller
         return redirect()->route('restaurant.index');
 
     }
+
+
+    public function edit($id)
+    {
+    
+        $restaurant = Restaurant::find($id);
+        return view('restaurant.edit-restaurant', compact('restaurant'));
+
+    }
+
 }
