@@ -1,18 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-
-
-<!-- messaggi di errore in caso di mancata validazione -->
-@if ($errors->any())
-<div class="alert alert-danger">
-    <ul>
-        @foreach ($errors->all() as $error)
-        <li>{{ $error }}</li>
-        @endforeach
-    </ul>
-</div>
-@endif
 <div class="container mt-4">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -31,6 +19,11 @@
                                     <div class="col-md-6">
                                         <input class="form-control" type="text" name="name" id="name" value="{{$dish->name}}">
                                     </div>
+                                    @error('name')
+                                        <span class='error'>
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
                                 <div class="mb-4 row">
                                     <label class="col-md-4 col-form-label text-md-right" for="img">Immagine prodotto</label>
@@ -42,10 +35,20 @@
                                     <textarea class="form-control" name="description" id="description" cols="30" rows="10">
                                         {{$dish->description}}
                                     </textarea>
+                                    @error('description')
+                                        <span class='error'>
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
                                 <div class="mb-4 row">
                                     <label class="col-md-4 col-form-label text-md-right" for="price">Prezzo</label>
                                     <input class="form-control" type="number" name="price" id="price" value="{{$dish->price}}">
+                                    @error('price')
+                                        <span class='error'>
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
                                 <div class="mb-4 row">
                                     <label class="form-check-label" for="flexRadioDefault1">
@@ -54,7 +57,12 @@
                     
                                     <label class="form-check-label" for="flexRadioDefault1">
                                         Non visibile
-                                    <input class="form-check-input mx-1" {{$dish->aviability === 0 ? 'checked' : ''}} type="radio" name="aviability" id="aviability" value="0">
+                                    <input class="form-check-input mx-1" {{$dish->aviability === 0 ? 'checked' : ''}} type="radio" name="aviability" id="aviability" value="0"><br>
+                                    @error('aviability')
+                                        <span class='error'>
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
                             
                             <div class="text-center">

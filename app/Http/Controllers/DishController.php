@@ -48,8 +48,21 @@ class DishController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(DishFormRequest $request)
+    public function store(Request $request)
     {
+        $request->validate([
+            'name' => 'required',
+            'description' => 'required',
+            'price' => 'required|gt:0',
+            'aviability' => 'required',
+        ], [
+            'name.required' => "Per favore inserire nome piatto",
+            'description.required' => 'L\'inserimento di una descrizione è obbligatorio',
+            'image.required' => "Per favore inserire un'immagine",
+            'price.required' => "Per favore inserire il prezzo del piatto",
+            'price.gt' => "Per favore inserire un prezzo positivo",
+            'aviability.required' => "Per favore indicare la disponibilità attuale",
+        ]);
         $data = $request->all();
         $restaurant_id = $request->user()->restaurant->id;
 
@@ -110,8 +123,21 @@ class DishController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(DishFormRequest $request, $id)
+    public function update(Request $request, $id)
     {
+        $request->validate([
+            'name' => 'required',
+            'description' => 'required',
+            'price' => 'required|gt:0',
+            'aviability' => 'required',
+        ], [
+            'name.required' => "Per favore inserire nome piatto",
+            'description.required' => 'L\'inserimento di una descrizione è obbligatorio',
+            'image.required' => "Per favore inserire un'immagine",
+            'price.required' => "Per favore inserire il prezzo del piatto",
+            'price.gt' => "Per favore inserire un prezzo positivo",
+            'aviability.required' => "Per favore indicare la disponibilità attuale",
+        ]);
 
         $data = $request->all();
 

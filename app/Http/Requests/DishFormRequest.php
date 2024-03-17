@@ -25,6 +25,7 @@ class DishFormRequest extends FormRequest
     {
         return [
             'name' => 'required',
+            'description' => 'required',
             'price' => 'required|gt:0',
             'aviability' => 'required',
             //'image' => 'required',
@@ -37,6 +38,7 @@ class DishFormRequest extends FormRequest
 
         return [
             'name.required' => "Per favore inserire nome piatto",
+            'description.required' => 'L\'inserimento di una descrizione è obbligatorio',
             'image.required' => "Per favore inserire un'immagine",
             'price.required' => "Per favore inserire il prezzo del piatto",
             'price.gt' => "Per favore inserire un prezzo positivo",
