@@ -184,6 +184,7 @@
                             </div>
                         </div>
 
+                        {{-- input for visibility --}}
                         <div class="mb-4 row">
                             <label class="col-md-4 col-form-label text-md-right" for="visibility">Visibilità</label>
                             <div class="col-md-6">
@@ -199,8 +200,7 @@
                                 </span>
                                 @enderror
                             </div>
-
-
+                        </div>
                         {{-- <label for="name">Nome ristorante</label>
                         <input type="text" name="name" id="name">
 

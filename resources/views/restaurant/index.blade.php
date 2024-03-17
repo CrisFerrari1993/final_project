@@ -23,7 +23,7 @@
                         <a class="btn_link" href="{{route('restaurant.edit', $restaurant->id)}}">Torna a lavoro</a>
                     </button>
                 @endif
-
+                
 
                 <h5 class="card-title mt-5"><strong>{{auth()->user()->restaurant->name}}</strong></h5>
                 <p class="card-text m-0"><i class="fa-solid fa-location-dot"></i> {{auth()->user()->restaurant->adress}}</p>

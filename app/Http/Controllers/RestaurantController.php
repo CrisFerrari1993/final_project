@@ -89,4 +89,20 @@ class RestaurantController extends Controller
 
     }
 
+
+    public function update(Request $request, $id)
+    {
+
+        $data = $request->all();
+
+        $restaurant = Restaurant::find($id);
+        $restaurant->visibility = $data['visibility'];
+
+        $restaurant->save();
+
+
+        return redirect()->route('restaurant.index');
+
+    }
+
 }

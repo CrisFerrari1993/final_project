@@ -80,7 +80,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/restaurant/edit/{id}', [RestaurantController :: class, 'edit'])
         ->name('restaurant.edit');
 
-
+    Route::put('/restaurant/edit/{id}', [RestaurantController :: class, 'update'])
+        ->name('restaurant.update');
 });
 
 require __DIR__ . '/auth.php';
