@@ -13,5 +13,15 @@ use App\Models\Order;
 
 class ApiController extends Controller
 {
-    //
+
+    // funzione per richiamare le categorie
+    public function getCategory()
+    {
+        $categories = Category::all();
+
+        return response()->json([
+            'categories' => $categories,
+        ]);
+    }
+
 }
