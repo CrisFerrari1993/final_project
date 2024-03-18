@@ -31,4 +31,7 @@ Route::group(['prefix' => '/v1'], function () {
     // getRestaurant
     Route::get('/restaurants', [ApiController::class, 'getRestaurant']);
 
+    // getDish
+    Route::get('/dishes', [ApiController::class, 'getDish']);
+
 });

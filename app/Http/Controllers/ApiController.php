@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 
 // importazione dei model
 use App\Models\Restaurant;
-use App\Models\User;
 use App\Models\Category;
 use App\Models\Dish;
 use App\Models\Order;
@@ -31,6 +30,16 @@ class ApiController extends Controller
 
         return response()->json([
             'restaurants' => $restaurants,
+        ]);
+    }
+
+    // funzione per richiamare i piatti
+    public function getDish()
+    {
+        $dishes = Dish::all();
+
+        return response()->json([
+            'dishes' => $dishes,
         ]);
     }
 
