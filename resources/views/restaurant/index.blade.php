@@ -3,8 +3,8 @@
 @section('content')
 @if (auth()->user()->restaurant)
 <div class="card mb-3">
-    <img class="wallpaper" src="{{asset('storage/' . auth()->user()->restaurant->wallpaper)}}" class="card-img-top" alt="...">
-    <div class="card-body">
+    
+    <div class="card-body s-card">
         <div class="row">
 
             <div class="col-sm-2 col-md-2 col-xl-2">
@@ -25,13 +25,15 @@
                 @endif
                 
 
-                <h5 class="card-title mt-5"><strong>{{auth()->user()->restaurant->name}}</strong></h5>
-                <p class="card-text m-0"><i class="fa-solid fa-location-dot"></i> {{auth()->user()->restaurant->adress}}</p>
-                <p class="card-text"><i class="fa-solid fa-cash-register"></i> P.IVA {{auth()->user()->restaurant->vat_num}}</p>
-                <div>
-                    @foreach ($restaurant->categories as $item)
-                        <span class="badge rounded-pill bg-dark text-white">{{$item->name}}</span>
-                    @endforeach
+                <div class="card s-info">
+                    <h3 class="card-title mt-5"><strong>{{auth()->user()->restaurant->name}}</strong></h3>
+                    <p class="card-text m-0"><i class="fa-solid fa-location-dot"></i> {{auth()->user()->restaurant->adress}}</p>
+                    <p class="card-text"><i class="fa-solid fa-cash-register"></i> P.IVA {{auth()->user()->restaurant->vat_num}}</p>
+                    <div>
+                        @foreach ($restaurant->categories as $item)
+                            <span class="badge rounded-pill bg-dark text-white">{{$item->name}}</span>
+                        @endforeach
+                    </div>
                 </div>
             </div>
         </div>
@@ -72,3 +74,19 @@
     </div>
 @endif
 @endsection
+
+
+<style>
+.s-card{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-image: url({{asset('storage/' . auth()->user()->restaurant->wallpaper)}});
+}
+
+.s-info{
+    background-color: rgba(0, 0, 0, 0.781) !important;
+    width:  50%;
+    color: white !important;
+}
+</style>
