@@ -41,7 +41,6 @@ class RestaurantController extends Controller
 
     public function store(Request $request)
     {
-
         $data = $request->all();
 
         $user = $request->user();
