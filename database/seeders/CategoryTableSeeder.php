@@ -19,8 +19,8 @@ class CategoryTableSeeder extends Seeder
     public function run()
     {
         // random selection for category elements
-        Category :: factory() -> count(2) -> create() -> each(function($category) {             
-            $restaurants = Restaurant::inRandomOrder()->get();             
+        Category :: factory() -> count(8) -> create() -> each(function($category) {             
+            $restaurants = Restaurant::inRandomOrder()->limit(rand(2, 8))->get();             
             $category -> restaurants() -> attach($restaurants);             
             $category -> save();         
         });  
