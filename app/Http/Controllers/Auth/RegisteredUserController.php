@@ -37,16 +37,41 @@ class RegisteredUserController extends Controller
      *
      * @throws \Illuminate\Validation\ValidationException
      */
-    public function store(RestaurantFormRequest $request): RedirectResponse
+    public function store(Request $request): RedirectResponse
     {
-
 
 
         $request->validate([
             'firstName' => ['required', 'string', 'max:255'],
             'lastName' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:' . User::class],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'password' => ['required', 'confirmed'],
+            'name' => 'required',
+            'adress' => 'required',
+            'logo' => 'required',
+            'wallpaper' => 'required',
+            'vat_num' => 'required',
+            'category_id' => 'required',
+            'visibility' => 'required',
+
+
+        ], [
+            'firstName.required' => "Per favore inserire un nome",
+            'firstName.max:255' => "Il nome non può superare i 255 caratteri",
+            'firstName.string' => "Il nome non può essere un numero",
+            'lastName.required' => "Per favore inserire un cognome",
+            'lastName.string' => "Il cognome non può essere un numero",
+            'email.email' => "Il dato inserito deve essere una mail valida",
+            'email.max:255' => "La email non può superare i 255 caratteri",
+            'password.required' => "Per favore inserire una password",
+            'password.confirmed' => "Le password non coincidono",
+            'name.required' => "Per favore inserire nome del ristorante",
+            'adress.required' => "Per favore inseririsci un indirizzo",
+            'logo.required' => "Per favore inserisci un logo",
+            'wallpaper.required' => "Per favore inserisci un wallpaper",
+            'vat_num.required' => "Per favore inserisci la partita iva",
+            'category_id.required' => "Per favore inserisci almeno un tipo di cucina",
+            'visibility.required' => "Seleziona la visibilità con cui cominciare"
         ]);
 
         $user = User::create([

@@ -17,12 +17,12 @@
                             <label for="firstName" class="col-md-4 col-form-label  form-label">{{ __('Nome') }}</label>
 
                             <div class="col-md-6">
-                                <input id="firstName" type="text" class="form-control @error('firstName') is-invalid @enderror" name="firstName" value="{{ old('firstName') }}" required autocomplete="firstName" autofocus>
+                                <input id="firstName" type="text" class="form-control" name="firstName" value="{{ old('firstName') }}">
 
                                 @error('firstName')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
+                                    <span class='error'>
+                                        <strong>{{ $message }}</strong>
+                                    </span>
                                 @enderror
                             </div>
                         </div>
@@ -31,12 +31,12 @@
                             <label for="lastName" class="col-md-4 col-form-label  form-label">{{ __('Cognome') }}</label>
 
                             <div class="col-md-6">
-                                <input id="lastName" type="text" class="form-control @error('lastName') is-invalid @enderror" name="lastName" value="{{ old('lastName') }}" required autocomplete="lastName" autofocus>
+                                <input id="lastName" type="text" class="form-control" name="lastName" value="{{ old('lastName') }}">
 
                                 @error('lastName')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
+                                    <span class='error'>
+                                        <strong>{{ $message }}</strong>
+                                    </span>
                                 @enderror
                             </div>
                         </div>
@@ -45,12 +45,11 @@
                             <label for="email" class="col-md-4 col-form-label  form-label">{{ __('Indirizzo E-mail ') }}</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-
+                                <input id="email" type="email" class="form-control" name="email">
                                 @error('email')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
+                                    <span class='error'>
+                                        <strong>{{ $message }}</strong>
+                                    </span>
                                 @enderror
                             </div>
                         </div>
@@ -59,12 +58,11 @@
                             <label for="password" class="col-md-4 col-form-label  form-label">{{ __('Password') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
+                                <input id="password" type="password" class="form-control" name="password">
                                 @error('password')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
+                                    <span class='error'>
+                                        <strong>{{ $message }}</strong>
+                                    </span>
                                 @enderror
                             </div>
                         </div>
@@ -73,28 +71,17 @@
                             <label for="password-confirm" class="col-md-4 col-form-label  form-label">{{ __('Conferma Password') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation">
                             </div>
                         </div>
-
-                        @if ($errors->any())
-                            <div class="alert alert-danger">
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        @endif
-
                         <!-- input restaurant name -->
                         <div class="mb-4 row justify-content-center">
                             <label for="name" class="col-md-4 col-form-label  form-label" >Nome ristorante</label>
 
                             <div class="col-md-6">
                                 <input type="text" name="name" id="name" class="form-control ">
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
+                                @error('name')
+                                    <span class='error'>
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
@@ -107,11 +94,10 @@
 
                             <div class="col-md-6">
                                 <input type="text" name="adress" id="adress" class="form-control">
-
-                                @error('password')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
+                                @error('adress')
+                                    <span class='error'>
+                                        <strong>{{ $message }}</strong>
+                                    </span>
                                 @enderror
                             </div>
                         </div>
@@ -122,11 +108,10 @@
 
                             <div class="col-md-6">
                                 <input type="file" name="logo" id="logo" class="form-control">
-
-                                @error('password')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
+                                @error('logo')
+                                    <span class='error'>
+                                        <strong>{{ $message }}</strong>
+                                    </span>
                                 @enderror
                             </div>
                         </div>
@@ -136,10 +121,10 @@
                             <label for="wallpaper" class="col-md-4 col-form-label  form-label">Wallpaper ristorante</label>
                             <div class="col-md-6">
                                 <input type="file" name="wallpaper" id="wallpaper" class="form-control">
-                                @error('password')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
+                                @error('wallpaper')
+                                    <span class='error'>
+                                        <strong>{{ $message }}</strong>
+                                    </span>
                                 @enderror
                             </div>
                         </div>
@@ -149,10 +134,10 @@
                             <label for="vat_num" class="col-md-4 col-form-label  form-label">P.iva ristorante</label>
                             <div class="col-md-6">
                                 <input type="number" name="vat_num" id="vat_num" class="form-control">
-                                @error('password')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
+                                @error('vat_num')
+                                    <span class='error'>
+                                        <strong>{{ $message }}</strong>
+                                    </span>
                                 @enderror
                             </div>
                         </div>
@@ -176,17 +161,17 @@
                                         </label>
                                     </div>
                                 @endforeach
-                                @error('password')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
+                                @error('category_id')
+                                    <span class='error'>
+                                        <strong>{{ $message }}</strong>
+                                    </span>
                                 @enderror
                             </div>
                         </div>
 
                         {{-- input for visibility --}}
-                        <div class="mb-4 row">
-                            <label class="col-md-4 col-form-label text-md-right" for="visibility">Visibilità</label>
+                        <div class="mb-4 row justify-content-center">
+                            <label class="col-md-4 col-form-label" for="visibility">Visibilità</label>
                             <div class="col-md-6">
                                 <label class="form-check-label" for="flexRadioDefault1">
                                     Visibile
@@ -195,62 +180,12 @@
                                     Non visibile
                                 <input class="form-check-input mx-1" type="radio" name="visibility" id="visibility" value="0"><br>
                                 @error('visibility')
-                                <span class='error'>
-                                    <strong>{{ $message }}</strong>
-                                </span>
+                                    <span class='error'>
+                                        <strong>{{ $message }}</strong>
+                                    </span>
                                 @enderror
                             </div>
                         </div>
-                        {{-- <label for="name">Nome ristorante</label>
-                        <input type="text" name="name" id="name">
-
-                        <br>
-                        <br>
-
-                        
-                        <label for="adress">Indirizzo ristorante</label>
-                        <input type="text" name="adress" id="adress">
-
-                        <br>
-                        <br>
-                        
-                        
-                        <label for="logo">Logo ristorante</label>
-                        <input type="file" name="logo" id="logo">
-
-                        <br>
-                        <br>
-
-                        
-                        <label for="wallpaper">Wallpaper ristorante</label>
-                        <input type="file" name="wallpaper" id="wallpaper">
-
-                        <br>
-                        <br>
-
-                        
-                        <label for="vat_num">P.iva ristorante</label>
-                        <input type="text" name="vat_num" id="vat_num">
-                        
-                        <br>
-                        <br>
-
-                        
-                        <label for="category">Categoria ristorante</label>
-                        @foreach ($categories as $category)
-                            <input
-                                type="checkbox"
-                                name="category_id[]"
-                                id="{{ 'category_id_' . $category->id }}"
-                                value="{{ $category->id }}"
-                            >
-                            <label
-                                for="{{ 'category_id_' . $category->id }}">
-                                {{ $category->name }}
-                            </label>
-                            <br>
-                        @endforeach --}}
-
                         <div class="mb-4 w-100 mb-0">
                             <div class="d-flex justify-content-center">
                                 <button type="submit" class="btn btn-primary">

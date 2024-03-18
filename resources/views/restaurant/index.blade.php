@@ -40,7 +40,7 @@
     </div>
   </div>
 <div class="text-center">
-    <button class="btn btn-primary"><a class="text-white" href="{{route('dish.create')}}"> Aggiungi piatto</a></button>
+    <a class="btn btn-primary" href="{{route('dish.create')}}">+ Aggiungi piatto</a>
 </div>
 
 <div class="container">
