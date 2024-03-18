@@ -17,7 +17,39 @@ class CategoryTableSeeder extends Seeder
      */
     public function run()
     {
-        // random selection for category elements
-        Category::factory()->count(8)->create();
+        // creazione delle categorie
+        $category = new Category();
+        $category->name = 'Italiano';
+        $category->save();
+
+        $category = new Category();
+        $category->name = 'Cinese';
+        $category->save();
+
+        $category = new Category();
+        $category->name = 'Messicano';
+        $category->save();
+
+        $category = new Category();
+        $category->name = 'Sushi';
+        $category->save();
+
+        $category = new Category();
+        $category->name = 'Etnico';
+        $category->save();
+
+        $category = new Category();
+        $category->name = 'Tipico';
+        $category->save();
+
+        $category = new Category();
+        $category->name = 'Kebab';
+        $category->save();
+
+        $category = new Category();
+        $category->name = 'Della nonna';
+        $category->save();
+
     }
+
 }
