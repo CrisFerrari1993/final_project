@@ -45,8 +45,7 @@
                             <label for="email" class="col-md-4 col-form-label  form-label">{{ __('Indirizzo E-mail ') }}</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}">
-
+                                <input id="email" type="email" class="form-control" name="email">
                                 @error('email')
                                     <span class='error'>
                                         <strong>{{ $message }}</strong>
