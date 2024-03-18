@@ -24,4 +24,14 @@ class ApiController extends Controller
         ]);
     }
 
+    // funzione per richiamare i ristoranti
+    public function getRestaurant()
+    {
+        $restaurants = Restaurant::all();
+
+        return response()->json([
+            'restaurants' => $restaurants,
+        ]);
+    }
+
 }
