@@ -4,7 +4,7 @@
 @if (auth()->user()->restaurant)
 <div class="card mb-3">
     
-    <div class="card-body s-card">
+    <div class="card-body s-card" style="background-image: url({{asset('storage/' . auth()->user()->restaurant->wallpaper)}});">
         <div class="row">
 
             <div class="col-sm-2 col-md-2 col-xl-2">
@@ -81,7 +81,6 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    background-image: url({{asset('storage/' . auth()->user()->restaurant->wallpaper)}});
 }
 
 .s-info{

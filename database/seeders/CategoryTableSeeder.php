@@ -18,37 +18,55 @@ class CategoryTableSeeder extends Seeder
     public function run()
     {
         // creazione delle categorie
-        $category = new Category();
-        $category->name = 'Italiano';
-        $category->save();
 
-        $category = new Category();
-        $category->name = 'Cinese';
-        $category->save();
+        $arrayCat = array(
+            'Italiano' => 'Italiano',
+            'Cinese' => 'Cinese',
+            'Messicano' => 'Messicano',
+            'Sushi' => 'Sushi',
+            'Italiano' => 'Italiano',
+            'Etnico' => 'Etnico',
+            'Kebab' => 'Kebab',
+            'Della nonna' => 'Della nonna',
+        );
+        
+        foreach($arrayCat as $arr){
+            $category = new Category();
+            $category->name = $arr;
+            $category->save();
+        }
 
-        $category = new Category();
-        $category->name = 'Messicano';
-        $category->save();
+        // $category = new Category();
+        // $category->name = 'Italiano';
+        // $category->save();
 
-        $category = new Category();
-        $category->name = 'Sushi';
-        $category->save();
+        // $category = new Category();
+        // $category->name = 'Cinese';
+        // $category->save();
 
-        $category = new Category();
-        $category->name = 'Etnico';
-        $category->save();
+        // $category = new Category();
+        // $category->name = 'Messicano';
+        // $category->save();
 
-        $category = new Category();
-        $category->name = 'Tipico';
-        $category->save();
+        // $category = new Category();
+        // $category->name = 'Sushi';
+        // $category->save();
 
-        $category = new Category();
-        $category->name = 'Kebab';
-        $category->save();
+        // $category = new Category();
+        // $category->name = 'Etnico';
+        // $category->save();
 
-        $category = new Category();
-        $category->name = 'Della nonna';
-        $category->save();
+        // $category = new Category();
+        // $category->name = 'Tipico';
+        // $category->save();
+
+        // $category = new Category();
+        // $category->name = 'Kebab';
+        // $category->save();
+
+        // $category = new Category();
+        // $category->name = 'Della nonna';
+        // $category->save();
 
     }
 
