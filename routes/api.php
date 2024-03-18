@@ -3,6 +3,9 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+// import ApiController
+use App\Http\Controllers\ApiController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -16,4 +19,16 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+// ROTTE API
+
+Route::group(['prefix' => '/v1'], function () {
+
+    // getCategory
+    Route::get('/categories', [ApiController::class, 'getCategory']);
+
+    // getRestaurant
+    Route::get('/restaurants', [ApiController::class, 'getRestaurant']);
+
 });
