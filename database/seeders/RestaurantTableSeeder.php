@@ -154,11 +154,9 @@ class RestaurantTableSeeder extends Seeder
 
             $new_restaurant->user()->associate($user);
 
-            // associamo la categoria
-            
-            
-            $new_restaurant -> categories()->associate($categories);
-
+            // associo la categoria
+                      
+            $new_restaurant -> categories()->attach($categories);
 
             $new_restaurant->name = $restaurant['name'];
             $new_restaurant->adress = $restaurant['adress'];

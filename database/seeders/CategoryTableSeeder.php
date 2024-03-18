@@ -7,6 +7,7 @@ use Illuminate\Database\Seeder;
 
 // import model
 use App\Models\Category;
+use App\Models\Restaurant;
 
 class CategoryTableSeeder extends Seeder
 {
@@ -18,6 +19,10 @@ class CategoryTableSeeder extends Seeder
     public function run()
     {
         // random selection for category elements
-        Category::factory()->count(8)->create();
+        Category :: factory() -> count(2) -> create() -> each(function($category) {             
+            $restaurants = Restaurant::inRandomOrder()->get();             
+            $category -> restaurants() -> attach($restaurants);             
+            $category -> save();         
+        });  
     }
 }
