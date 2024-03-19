@@ -33,6 +33,25 @@ class ApiController extends Controller
         ]);
     }
 
+    // funzione per richiamare le categorie associate a i piatti
+    public function getCategoriesForRestaurant($restaurantId)
+    {
+        // Trova il ristorante dal database utilizzando l'ID fornito
+        $restaurant = Restaurant::find($restaurantId);
+
+        // Se il ristorante non esiste, restituisci una risposta di errore
+        if (!$restaurant) {
+            return response()->json(['message' => 'Ristorante non trovato'], 404);
+        }
+
+        // Ottieni le categorie associate al ristorante
+        $categories = $restaurant->categories;
+
+        // Restituisci le categorie come risposta JSON
+        return response()->json(['categories' => $categories], 200);
+    }
+
+
     // funzione per richiamare i piatti
     public function getDish()
     {

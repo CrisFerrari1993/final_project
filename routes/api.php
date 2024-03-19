@@ -28,6 +28,9 @@ Route::group(['prefix' => '/v1'], function () {
     // getRestaurant
     Route::get('/restaurants', [ApiController::class, 'getRestaurant']);
 
+    // getCategoriesForRestaurant 
+    Route::get('/restaurants/{restaurantId}/categories', [ApiController::class, 'getCategoriesForRestaurant']);
+
     // getDish
     Route::get('/dishes', [ApiController::class, 'getDish']);
 
