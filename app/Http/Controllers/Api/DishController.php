@@ -10,7 +10,7 @@ class DishController extends Controller
 {
     public function index($restaurant_id)
     {
-        $Dishes = Dish::where('restaurant_id', $restaurant_id)->get();
+        $dishes = Dish::all() -> where('restaurant_id', $restaurant_id);
         $data = [
             "success" => true,
             "results" => $dishes
