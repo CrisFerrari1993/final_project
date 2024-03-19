@@ -55,7 +55,8 @@ class ApiController extends Controller
     // funzione per richiamare i piatti
     public function getDish()
     {
-        $dishes = Dish::all();
+        $idRest = $_GET['idRest'];
+        $dishes = Dish::all() ->where('restaurant_id', $idRest);
 
         return response()->json([
             'dishes' => $dishes,
