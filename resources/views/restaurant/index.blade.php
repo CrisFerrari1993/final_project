@@ -53,7 +53,7 @@
                         <div class="card-body">
                             <h5 class="card-title">{{$dish->name}}</h5>
                             <p class="card-text">€ {{$dish->price}}</p>
-                            <div class="d-flex mt-2 d-flex align-items-center justify-content-around">
+                            <div class="d-flex mt-2 d-flex align-items-center">
                                 <button class="btn btn-primary me-2">
                                     <a class="btn_link" href="{{route('dish.edit', $dish->id)}}">
                                         <i class="fa-solid fa-pencil"></i> Modifica 
@@ -61,11 +61,12 @@
                                 </button>
                                 {{-- disponibilita del piatto --}}
                                 @if ($dish->aviability)
-                                    <span>Disponibile &nbsp</span>
                                     <span class="bullet"></span>
+                                    <span> Disponibile</span>
+                                    
                                 @else 
-                                    <span>Non Disponibile &nbsp</span>
                                     <span class="bullet unavaible"></span>
+                                    <span> Non Disponibile</span>
                                 @endif
                             </div>
                         </div>
