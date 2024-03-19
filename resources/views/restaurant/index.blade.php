@@ -50,23 +50,22 @@
                 <a class="idx_link" href="{{route('dish.show', $dish->id)}}">
                     <div class="card p-2">
                         <img src="{{asset('storage/' . $dish->image)}}" class="fixed-width" alt="{{$dish->name}}">
-                    <div class="card-body">
-                    <h5 class="card-title">{{$dish->name}}</h5>
-                    <p class="card-text">€ {{$dish->price}}</p>
-                    <div class="d-flex mt-2">
-                        <button class="btn btn-primary me-2">
-                            <a class="btn_link" href="{{route('dish.edit', $dish->id)}}">
-                                <i class="fa-solid fa-pencil"></i>
-                                Modifica
-                            </a>
-                        </button>
-                        <form action="{{route('dish.destroy', $dish->id) }}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <button class='btn btn-danger' type="submit"><i class="fa-solid fa-trash-can"></i>Elimina</button>
-                        </form>
-                    </div>
-                    </div>
+                        <div class="card-body">
+                            <h5 class="card-title">{{$dish->name}}</h5>
+                            <p class="card-text">€ {{$dish->price}}</p>
+                            <div class="d-flex mt-2">
+                                <button class="btn btn-primary me-2">
+                                    <a class="btn_link" href="{{route('dish.edit', $dish->id)}}">
+                                        <i class="fa-solid fa-pencil"></i> Modifica 
+                                    </a>
+                                </button>
+                                <form action="{{route('dish.destroy', $dish->id) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class='btn btn-danger' type="submit"><i class="fa-solid fa-trash-can"></i>Elimina</button>
+                                </form>
+                            </div>
+                        </div>
                     </div>
                 </a>
             </div>
