@@ -107,7 +107,7 @@
                             <label for="logo" class="col-md-4 col-form-label  form-label">Logo ristorante</label>
 
                             <div class="col-md-6">
-                                <input type="file" name="logo" id="logo" class="form-control">
+                                <input type="file" name="logo" id="logo" class="form-control" accept="image/png, image/svg">
                                 @error('logo')
                                     <span class='error'>
                                         <strong>{{ $message }}</strong>
@@ -120,7 +120,7 @@
                         <div class="mb-4 row justify-content-center">
                             <label for="wallpaper" class="col-md-4 col-form-label  form-label">Wallpaper ristorante</label>
                             <div class="col-md-6">
-                                <input type="file" name="wallpaper" id="wallpaper" class="form-control">
+                                <input type="file" name="wallpaper" id="wallpaper" class="form-control" accept="image/png, image/svg">
                                 @error('wallpaper')
                                     <span class='error'>
                                         <strong>{{ $message }}</strong>

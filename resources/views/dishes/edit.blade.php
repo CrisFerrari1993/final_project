@@ -28,13 +28,11 @@
                                 <div class="mb-4 row">
                                     <label class="col-md-4 col-form-label text-md-right" for="img">Immagine prodotto</label>
                                     <img class="img_preview" src="{{asset('storage/' . $dish->image)}}" alt="{{$dish->name}}">
-                                    <input class="form-control"  type="file" name="image" id="image" accept="image/png">
+                                    <input class="form-control"  type="file" name="image" id="image" accept="image/png, image/svg">
                                 </div>
                                 <div class="mb-4 row">
                                     <label class="col-md-4 col-form-label text-md-right" for="description">Descrizione</label>
-                                    <textarea class="form-control" name="description" id="description" cols="30" rows="10">
-                                        {{$dish->description}}
-                                    </textarea>
+                                    <textarea class="form-control" name="description" id="description" cols="30" rows="10">{{$dish->description}}</textarea>                                     
                                     @error('description')
                                         <span class='error'>
                                             <strong>{{ $message }}</strong>
