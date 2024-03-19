@@ -32,8 +32,7 @@
                                     <div class="mb-4 row">
                                         <label class="col-md-4 col-form-label text-md-right" for="description">Descrizione</label>
                                         <div class="col-md-6">
-                                            <textarea class="form-control" name="description" id="description" cols="30" rows="10">
-                                            </textarea>
+                                            <textarea class="form-control" name="description" id="description" cols="30" rows="10"></textarea>                                          
                                             @error('description')
                                                 <span class='error'>
                                                     <strong>{{ $message }}</strong>
