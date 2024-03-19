@@ -2,10 +2,11 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
-// import ApiController
-use App\Http\Controllers\ApiController;
-
+use App\Http\Controllers\Api\CategoryController;
+use App\Http\Controllers\Api\DishController;
+use App\Http\Controllers\Api\RestaurantController;
+use App\Http\Controllers\Api\ProductControllerController;
+use App\Models\Category;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -19,19 +20,20 @@ use App\Http\Controllers\ApiController;
 
 
 // ROTTE API
+Route::get('restaurants', [RestaurantController::class, "index"]);
 
-Route::group(['prefix' => '/v1'], function () {
+// Rotte per visualizzare i dettagli di un ristorante specifico
+Route::get('restaurants/{id}', [RestaurantController::class, "show"]);
 
-    // getCategory
-    Route::get('/categories', [ApiController::class, 'getCategory']);
+// Rotte per visualizzare i prodotti di un ristorante specifico
+Route::get('restaurants/{restaurant_id}/dishes', [DishController::class, "index"]);
 
-    // getRestaurant
-    Route::get('/restaurants', [ApiController::class, 'getRestaurant']);
+// Rotte per filtrare i ristoranti in base alle categorie
+Route::get('restaurants/categories/{category_id}', [RestaurantController::class, "filterByCategory"]);
 
-    // getCategoriesForRestaurant 
-    Route::get('/restaurants/{restaurantId}/categories', [ApiController::class, 'getCategoriesForRestaurant']);
+// Rotte per visualizzare l'elenco delle categorie
+Route::get('categories', [CategoryController::class, "index"]);
 
-    // getDish
-    Route::get('/dishes', [ApiController::class, 'getDish']);
-
+Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+    return $request->user();
 });
