@@ -5,7 +5,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\DishController;
 use App\Http\Controllers\Api\RestaurantController;
-use App\Http\Controllers\Api\ProductControllerController;
 use App\Models\Category;
 /*
 |--------------------------------------------------------------------------
