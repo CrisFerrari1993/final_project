@@ -23,7 +23,7 @@ class DishController extends Controller
         $Dish = Dish::where('restaurant_id', $restaurant_id)->findOrFail($id);
         $data = [
             "success" => true,
-            "results" => $product
+            "results" => $dish
         ];
         return response()->json($data);
     }
