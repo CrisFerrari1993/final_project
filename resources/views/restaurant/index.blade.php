@@ -53,17 +53,20 @@
                         <div class="card-body">
                             <h5 class="card-title">{{$dish->name}}</h5>
                             <p class="card-text">€ {{$dish->price}}</p>
-                            <div class="d-flex mt-2">
+                            <div class="d-flex mt-2 d-flex align-items-center justify-content-around">
                                 <button class="btn btn-primary me-2">
                                     <a class="btn_link" href="{{route('dish.edit', $dish->id)}}">
                                         <i class="fa-solid fa-pencil"></i> Modifica 
                                     </a>
                                 </button>
-                                <form action="{{route('dish.destroy', $dish->id) }}" method="POST">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button class='btn btn-danger' type="submit"><i class="fa-solid fa-trash-can"></i>Elimina</button>
-                                </form>
+                                {{-- disponibilita del piatto --}}
+                                @if ($dish->aviability)
+                                    <span>Disponibile &nbsp</span>
+                                    <span class="bullet"></span>
+                                @else 
+                                    <span>Non Disponibile &nbsp</span>
+                                    <span class="bullet unavaible"></span>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -87,5 +90,17 @@
     background-color: rgba(0, 0, 0, 0.781) !important;
     width:  50%;
     color: white !important;
+}
+
+.bullet{
+    width: 20px;
+    height: 20px;
+    border: 1px solid green;
+    background-color: green;
+    border-radius: 50%;
+}
+.unavaible{
+    border-color: red;
+    background-color: red;
 }
 </style>
