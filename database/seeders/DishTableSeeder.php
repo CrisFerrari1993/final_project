@@ -23,42 +23,21 @@ class DishTableSeeder extends Seeder
         $dishes = [
             [
                 'name' => 'Spaghetti Carbonara',
-                'image' => 'images/spaghetti_carbonara.jpg',
+                'image' => 'images/spaghetti_carbonara.jpeg',
                 'description' => 'Un classico piatto italiano fatto con spaghetti, uova, pancetta, e formaggio.',
                 'price' => '12.99',
                 'aviability' => true,
             ],
             [
                 'name' => 'Pizza Margherita',
-                'image' => 'images/pizza_margherita.jpg',
+                'image' => 'images/pizza_margherita.jpeg',
                 'description' => 'Una deliziosa pizza con pomodoro, mozzarella, basilico, e olio d\'oliva.',
                 'price' => '10.99',
                 'aviability' => true,
             ],
             [
                 'name' => 'Insalata Caprese',
-                'image' => 'images/insalata_caprese.jpg',
-                'description' => 'Un\'insalata fresca con pomodoro, mozzarella di bufala, basilico, e olio d\'oliva.',
-                'price' => '8.99',
-                'aviability' => true,
-            ],
-            [
-                'name' => 'Spaghetti Carbonara',
-                'image' => 'images/spaghetti_carbonara.jpg',
-                'description' => 'Un classico piatto italiano fatto con spaghetti, uova, pancetta, e formaggio.',
-                'price' => '12.99',
-                'aviability' => true,
-            ],
-            [
-                'name' => 'Pizza Margherita',
-                'image' => 'images/pizza_margherita.jpg',
-                'description' => 'Una deliziosa pizza con pomodoro, mozzarella, basilico, e olio d\'oliva.',
-                'price' => '10.99',
-                'aviability' => true,
-            ],
-            [
-                'name' => 'Insalata Caprese',
-                'image' => 'images/insalata_caprese.jpg',
+                'image' => 'images/insalata_caprese.png',
                 'description' => 'Un\'insalata fresca con pomodoro, mozzarella di bufala, basilico, e olio d\'oliva.',
                 'price' => '8.99',
                 'aviability' => true,
@@ -247,9 +226,9 @@ class DishTableSeeder extends Seeder
             ],
         ];
 
-        $restaurants = Restaurant :: inRandomOrder()->get();
+        $restaurants = Restaurant::inRandomOrder()->get();
 
-        foreach ($dishes as $dish){
+        foreach ($dishes as $dish) {
 
             $new_dish = new Dish();
 
