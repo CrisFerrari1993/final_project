@@ -7,7 +7,9 @@ use App\Http\Controllers\Api\DishController;
 use App\Http\Controllers\Api\RestaurantController;
 use App\Http\Controllers\Api\ProductControllerController;
 use App\Http\Controllers\Api\ApiController;
+use App\Http\Controllers\Api\OrderController;
 use App\Models\Category;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -38,3 +40,8 @@ Route::get('categories', [CategoryController::class, "index"]);
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+// Rotte per ordini
+Route::get('dishes', [DishController::class, "getDishes"]);
+Route::get('generate', [OrderController::class, "generate"]);
+Route::post('makePayment', [OrderController::class, "makePayment"]);
