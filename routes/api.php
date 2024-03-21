@@ -42,5 +42,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 // Rotte per ordini
+Route::get('dishes', [DishController::class, "getDishes"]);
 Route::get('generate', [OrderController::class, "generate"]);
 Route::post('makePayment', [OrderController::class, "makePayment"]);

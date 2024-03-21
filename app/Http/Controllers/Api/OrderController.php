@@ -29,7 +29,7 @@ class OrderController extends Controller
         $dish = Dish::find($request->dish);
 
         $result = $gateway->transaction()->sale([
-            'amount' => $request->price,
+            'amount' => $dish->price,
             'paymentMethodNonce' => $request->token,
             'options' => [
                 'submitForSettlement' => true

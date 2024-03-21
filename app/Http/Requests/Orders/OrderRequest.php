@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Orders;
 
+use App\Rules\ValidDish;
 use Illuminate\Foundation\Http\FormRequest;
 
 class OrderRequest extends FormRequest
@@ -26,7 +27,12 @@ class OrderRequest extends FormRequest
         return [
             'token' => 'required',
             // valore di amount da prendere dinamicamente dal back-end
-            'dish' => 'required'
+            'dish' => [
+                'required',
+                new ValidDish
+
+                
+            ]
         ];
     }
 }

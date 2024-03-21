@@ -27,4 +27,13 @@ class DishController extends Controller
         ];
         return response()->json($data);
     }
+
+    public function getDishes(){
+        $dishes = Dish::all();
+        $data = [
+            "success" => true,
+            "results" => $dishes
+        ];
+        return response()->json($data);
+    }
 }
