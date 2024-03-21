@@ -29,9 +29,7 @@ class OrderRequest extends FormRequest
             // valore di amount da prendere dinamicamente dal back-end
             'dish' => [
                 'required',
-                new ValidDish
-
-                
+                new ValidDish()
             ]
         ];
     }
