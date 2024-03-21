@@ -84,7 +84,6 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    background-image: url({{asset('storage/' . auth()->user()->restaurant->wallpaper)}});
 }
 
 .s-info{
