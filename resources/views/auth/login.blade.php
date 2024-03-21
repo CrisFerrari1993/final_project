@@ -9,7 +9,7 @@
 
                 <div class="card-body">
                     
-                    <form method="POST" action="{{ route('login') }}">
+                    <form method="POST" id="formLog" action="{{ route('login') }}">
                         @csrf
 
                         <div class="mb-4 row">
@@ -17,7 +17,7 @@
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control" name="email">
-
+                                <span class="text-danger d-none" id="emailError">Inserisci email</span>
                                 @error('email')
                                 <span class="error" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -31,7 +31,7 @@
 
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control" name="password">
-
+                                <span class="text-danger d-none" id="passwordError">Inserisci password</span>
                                 @error('password')
                                 <span class="error" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -57,7 +57,7 @@
 
                         <div class="mb-4 row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" id="subLog" class="btn btn-primary">
                                     {{ __('Login') }}
                                 </button>
 
@@ -74,4 +74,38 @@
         </div>
     </div>
 </div>
+<script>
+
+
+    document.getElementById('subLog').addEventListener('click', function (event) {
+ 
+        console.log('ciao')
+        event.preventDefault();
+
+
+        var email = document.getElementById('email').value;
+        var password = document.getElementById('password').value;
+    
+        // Verifica del nome
+        if (email.trim() === '') {
+            document.getElementById('emailError').classList.remove('d-none');
+            return;
+        }else{
+            document.getElementById('emailError').classList.add('d-none');
+        }
+
+
+        // Verifica dell'email
+        if (password.trim() === '') {
+  
+            document.getElementById('passwordError').classList.remove('d-none');
+            return;
+        }else{
+            document.getElementById('passwordError').classList.add('d-none');
+        }
+
+
+        document.getElementById('formLog').submit();
+    });
+</script>
 @endsection

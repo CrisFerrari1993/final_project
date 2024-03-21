@@ -209,12 +209,11 @@
 </div>
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-    // Aggiungi un event listener per il click sul pulsante di registrazione
     document.getElementById('butSubmit').addEventListener('click', function (event) {
-        // Evita il comportamento predefinito del pulsante di invio
+
         event.preventDefault();
 
-        // Ottieni i valori dei campi del form
+
         var email = document.getElementById('email').value;
         var firstName = document.getElementById('firstName').value;
         var lastName = document.getElementById('lastName').value;
@@ -289,47 +288,39 @@ document.addEventListener('DOMContentLoaded', function () {
             document.getElementById('adressRestaurantError').classList.add('d-none');
         }
 
-        //verifica inserimento logo
-        if (logoInput.files.length > 0) {
-            var logoFile = logoInput.files[0];
-            console.log('ciaoo')
+        // //verifica inserimento logo
+        // if (logoInput.files.length > 0) {
+        //     var logoFile = logoInput.files[0];
             
-            if (logoFile && logoFile.size > 100 * 1024) {
-                logoError.classList.remove('d-none');
-                logoError.innerHTML = 'Il logo non deve essere più pesante di 100 KB';
+            
+        //     if (logoFile && logoFile.size > 100 * 1024) {
+        //         logoError.classList.remove('d-none');
+        //         logoError.innerHTML = 'Il logo non deve essere più pesante di 100 KB';
                 
-                
-                event.preventDefault();
-                return;
-            }else{
-                logoError.innerHTML = 'Inserisci il logo';
-                return;
-            }
-        }else{
-            logoError.classList.add('d-none');
-            return;
-        }
+        //         event.preventDefault();
+        //         return;
+        //     }
+        // }else{
+        //     logoError.innerHTML = 'Inserisci il logo';
+        //     return;
+        // }
 
-        // Controlla il wallpaper del ristorante
-        if (wallpaperInput.files.length > 0) {
-            var wallpaperFile = wallpaperInput.files[0];
+        // // Controlla il wallpaper del ristorante
+        // if (wallpaperInput.files.length > 0) {
+        //     var wallpaperFile = wallpaperInput.files[0];
             
 
-            if (wallpaperFile.size > 100 * 1024) { 
-                wallpaperError.classList.remove('d-none');
-                wallpaperError.innerHTML = 'Lo sfondo non deve essere più pesante di 100 KB';
+        //     if (wallpaperFile.size > 100 * 1024) { 
+        //         wallpaperError.classList.remove('d-none');
+        //         wallpaperError.innerHTML = 'Lo sfondo non deve essere più pesante di 100 KB';
 
-
-                event.preventDefault();
-                return;
-            }else{
-                wallpaperError.innerHTML = 'Inserisci uno sfondo';
-                return;
-            }
-        }else{
-            wallpaperError.classList.add('d-none');
-            return;
-        }
+        //         event.preventDefault();
+        //         return;
+        //     }
+        // }else{
+        //     wallpaperError.innerHTML = 'Inserisci uno sfondo';
+        //     return;
+        // }
 
 
         //controllo partita iva
