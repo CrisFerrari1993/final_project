@@ -10,7 +10,7 @@
                         <div class="card-header">{{ __('Modifica dell\'piatto') }}</div>
 
                         <div class="card-body">
-                            <form method="POST" enctype="multipart/form-data">
+                            <form method="POST" id="dishEditForm" enctype="multipart/form-data">
                                 @csrf
                                 @method('PUT')
                                 
@@ -19,7 +19,8 @@
                                             <label class="col-md-4 col-form-label text-md-right" for="name">Nome del piatto</label>
 
                                             <div class="col-md-6">
-                                                <input class="form-control" type="text" name="name" id="name" value="{{$dish->name}}">
+                                                <input class="form-control" type="text" name="name" id="editName" value="{{$dish->name}}">
+                                                <span class="text-danger d-none" id="editNameError">Inserisci nome del piatto</span>
                                             </div>
                                             @error('name')
                                                 <span class='error'>
@@ -30,11 +31,12 @@
                                         <div class="mb-4 row">
                                             <label class="col-md-4 col-form-label text-md-right" for="img">Immagine prodotto</label>
                                             
-                                            <input class="form-control"  type="file" name="image" id="image" accept="image/png, image/svg">
+                                            <input class="form-control"  type="file" name="image" id="editImage" accept="image/png, image/svg">
                                         </div>
                                         <div class="mb-4 row">
                                             <label class="col-md-4 col-form-label text-md-right" for="description">Descrizione</label>
-                                            <textarea class="form-control" name="description" id="description" cols="30" rows="10">{{$dish->description}}</textarea>                                     
+                                            <textarea class="form-control" name="description" id="editDescription" cols="30" rows="10">{{$dish->description}}</textarea>                                     
+                                            <span class="text-danger d-none" id="editDescError">Inserisci la descrizione del piatto</span>
                                             @error('description')
                                                 <span class='error'>
                                                     <strong>{{ $message }}</strong>
@@ -43,7 +45,8 @@
                                         </div>
                                         <div class="mb-4 row">
                                             <label class="col-md-4 col-form-label text-md-right" for="price">Prezzo in euro</label>
-                                            <input class="form-control" type="number" name="price" id="price" value="{{$dish->price}}">
+                                            <input class="form-control" type="number" name="price" id="editPrice" value="{{$dish->price}}">
+                                            <span class="text-danger d-none" id="editPriceError">Inserisci il prezzo del piatto</span>
                                             @error('price')
                                                 <span class='error'>
                                                     <strong>{{ $message }}</strong>
@@ -66,7 +69,7 @@
                                         </div>
                                     
                                     <div class="text-center">
-                                        <input class="btn btn-primary" type="submit" onclick="return confirm('Le modifiche sono corrette?')" value="Modifica">
+                                        <input class="btn btn-primary" type="submit" id="editSub" value="Modifica">
                                     </div>
                                 
                             </form> 
@@ -79,5 +82,56 @@
 @else
     <h1>Ops... Qualcuno sta provando a fare l'hackerino</h1>
 @endif
+
+<script>
+        document.getElementById('editSub').addEventListener('click', function (event) {
+         event.preventDefault();
+
+
+        var name = document.getElementById('editName').value;
+        var description = document.getElementById('editDescription').value;
+        var price = document.getElementById('editPrice').value;
+        var visibility = document.querySelector('input[name="visibility"]:checked');
+
+        // Verifica del nome
+        if (name.trim() === '') {
+            document.getElementById('editNameError').classList.remove('d-none');
+            return;
+        }else{
+            document.getElementById('editNameError').classList.add('d-none');
+        }
+
+
+        // Verifica della descrizione
+        if (description.trim() === '') {
+
+            document.getElementById('editDescError').classList.remove('d-none');
+            return;
+        }else{
+            document.getElementById('editDescError').classList.add('d-none');
+        }
+
+
+        // Verifica della descrizione
+        if (price.trim() === '') {
+
+            document.getElementById('editPriceError').classList.remove('d-none');
+            return;
+        }else{
+            document.getElementById('editPriceError').classList.add('d-none');
+        }
+
+
+        // Verifica della visibilità
+        if (!visibility) {
+            document.getElementById('dishVisibilityError').classList.remove('d-none');
+            return;
+        } else {
+            document.getElementById('dishVisibilityError').classList.add('d-none');
+        }
+            document.getElementById('dishEditForm').submit();
+        });
+    </script>
+</script>
 
 @endsection
