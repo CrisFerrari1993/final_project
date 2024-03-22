@@ -20,7 +20,7 @@ class CategoryTableSeeder extends Seeder
     {
         // random selection for category elements
         Category::factory()->count(8)->create()->each(function ($category) {
-            $restaurants = Restaurant::inRandomOrder()->limit(rand(2, 8))->get();
+            $restaurants = Restaurant::inRandomOrder()->limit(2)->get();
             $category->restaurants()->attach($restaurants);
             $category->save();
         });
