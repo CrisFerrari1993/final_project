@@ -8,7 +8,7 @@
                 <div class="card mb-4">
                     <div class="card-header">{{ __('Aggiungi un nuovo piatto al tuo menu') }}</div>
                         <div class="card-body">
-                            <form action="{{route('dish.store')}}" method="POST" enctype="multipart/form-data">
+                            <form action="{{route('dish.store')}}" id="dishAddForm" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 @method('POST')                               
                                     <div class="mb-4 row">
@@ -16,6 +16,7 @@
     
                                         <div class="col-md-6">
                                             <input class="form-control" type="text" name="name" id="name">
+                                            <span class="text-danger d-none" id="dishNameError">Inserisci il nome del piatto</span>
                                             @error('name')
                                                 <span class='error'>
                                                     <strong>{{ $message }}</strong>
@@ -33,6 +34,7 @@
                                         <label class="col-md-4 col-form-label text-md-right" for="description">Descrizione</label>
                                         <div class="col-md-6">
                                             <textarea class="form-control" name="description" id="description" cols="30" rows="10"></textarea>                                          
+                                            <span class="text-danger d-none" id="dishDescError">Inserisci la descrizione del piatto</span>
                                             @error('description')
                                                 <span class='error'>
                                                     <strong>{{ $message }}</strong>
@@ -44,6 +46,8 @@
                                         <label class="col-md-4 col-form-label text-md-right" for="price">Prezzo</label>
                                         <div class="col-md-6">
                                             <input class="form-control" type="number" name="price" id="price">
+                                            <span class="text-danger d-none" id="dishPriceError">Inserisci il prezzo del piatto</span>
+                                            <span></span>
                                             @error('price')
                                                 <span class='error'>
                                                     <strong>{{ $message }}</strong>
@@ -60,6 +64,7 @@
                                             <label class="form-check-label" for="flexRadioDefault1">
                                                 Non visibile
                                             <input class="form-check-input mx-1" type="radio" name="aviability" id="aviability" value="0"><br>
+                                            <span class="text-danger d-none" id="dishVisibilityError">Seleziona la visibilità del piatto</span>
                                             @error('aviability')
                                             <span class='error'>
                                                 <strong>{{ $message }}</strong>
@@ -69,7 +74,7 @@
                                         
                                     </div>
                                 <div class="text-center">
-                                    <input class="btn btn-primary" type="submit" onclick="return confirm('Gli inserimenti sono corretti?')" value="Inserisci">
+                                    <input class="btn btn-primary" id="dishSub" type="submit" value="Inserisci">
                                 </div>
                         </form> 
                     </div>
@@ -77,4 +82,53 @@
             </div>
         </div>
     </div>
+    <script>
+        document.getElementById('dishSub').addEventListener('click', function (event) {
+         event.preventDefault();
+
+
+        var name = document.getElementById('name').value;
+        var description = document.getElementById('description').value;
+        var price = document.getElementById('price').value;
+        var visibility = document.querySelector('input[name="visibility"]:checked');
+
+        // Verifica del nome
+        if (name.trim() === '') {
+            document.getElementById('dishNameError').classList.remove('d-none');
+            return;
+        }else{
+            document.getElementById('dishNameError').classList.add('d-none');
+        }
+
+
+        // Verifica della descrizione
+        if (description.trim() === '') {
+
+            document.getElementById('dishDescError').classList.remove('d-none');
+            return;
+        }else{
+            document.getElementById('dishDescError').classList.add('d-none');
+        }
+
+
+        // Verifica della descrizione
+        if (price.trim() === '') {
+
+            document.getElementById('dishPriceError').classList.remove('d-none');
+            return;
+        }else{
+            document.getElementById('dishPriceError').classList.add('d-none');
+        }
+
+
+        // Verifica della visibilità
+        if (!visibility) {
+            document.getElementById('dishVisibilityError').classList.remove('d-none');
+            return;
+        } else {
+            document.getElementById('dishVisibilityError').classList.add('d-none');
+        }
+            document.getElementById('dishAddForm').submit();
+        });
+    </script>
 @endsection
