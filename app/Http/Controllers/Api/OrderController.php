@@ -29,8 +29,14 @@ class OrderController extends Controller
 
         $dish = Dish::find($request->dish);
 
+        $totalPrice = 0;
+
+        foreach ($dish as $singleDish) {
+            $totalPrice += $singleDish->price;
+        }
+
         $result = $gateway->transaction()->sale([
-            'amount' => $dish->price,
+            'amount' => $totalPrice,
             'paymentMethodNonce' => $request->token,
             'options' => [
                 'submitForSettlement' => true
@@ -60,14 +66,12 @@ class OrderController extends Controller
         // Ottieni i dati inviati nella richiesta
         $data = $request->all();
 
-        dd($data);
-
         // Crea un nuovo ordine con i dati dell'utente
         $order = new Order();
         $order->customer_name = $data['customer_name'];
         $order->customer_lastName = $data['customer_lastName'];
-        $order->customer_address = $data['customer_address'];
-        $order->customer_mail_address = $data['customer_mail_address'];
+        $order->customer_adress = $data['customer_adress'];
+        $order->customer_mail_adress = $data['customer_mail_adress'];
         $order->customer_phone_number = $data['customer_phone_number'];
         $order->restaurant_id = $data['restaurant_id'];
 
@@ -75,7 +79,7 @@ class OrderController extends Controller
         $order->save();
 
         // Associa i piatti all'ordine
-        foreach ($data['userData']['dishes'] as $dishData) {
+        foreach ($data['dishes'] as $dishData) {
             $dish = Dish::find($dishData['id']); // Trova il piatto dal database
             if ($dish) {
                 // Aggiungi il piatto all'ordine con la quantità specificata
