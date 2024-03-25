@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\Orders\OrderRequest;
 use Braintree\Gateway;
 use App\Models\Dish;
+use App\Models\Order;
 
 class OrderController extends Controller
 {
@@ -51,6 +52,26 @@ class OrderController extends Controller
             return response()->json($data, 401);
 
         }
+
+    }
+
+    public function newOrder(Request $request)
+    {
+
+        $data = request()->all();
+
+        var_dump($data);
+
+        $order = new Order();
+
+        $order->customer_name = $data['customer_name'];
+        $order->customer_lastName = $data['customer_lastName'];
+        $order->customer_adress = $data['customer_adress'];
+        $order->customer_mail_adress = $data['customer_mail_adress'];
+        $order->customer_phone_number = $data['customer_phone_number'];
+        $order->restaurant_id = $data['restaurant_id'];
+
+        $order->save;
 
     }
 

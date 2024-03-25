@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      *
@@ -20,8 +19,8 @@ return new class extends Migration
             $table->string('customer_adress', 256)->required();
             $table->string('customer_mail_adress', 256)->required();
             $table->string('customer_phone_number', 12)->required();
-            $table->dateTime('order_date')->required();
-            $table->decimal('total_amount')->required();
+            // $table->dateTime('order_date')->required();
+            // $table->decimal('total_amount')->required();
             $table->timestamps();
         });
     }
