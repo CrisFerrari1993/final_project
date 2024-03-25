@@ -57,22 +57,35 @@ class OrderController extends Controller
 
     public function newOrder(Request $request)
     {
+        // Ottieni i dati inviati nella richiesta
+        $data = $request->all();
 
-        $data = request()->all();
+        dd($data);
 
-        var_dump($data);
-
+        // Crea un nuovo ordine con i dati dell'utente
         $order = new Order();
-
         $order->customer_name = $data['customer_name'];
         $order->customer_lastName = $data['customer_lastName'];
-        $order->customer_adress = $data['customer_adress'];
-        $order->customer_mail_adress = $data['customer_mail_adress'];
+        $order->customer_address = $data['customer_address'];
+        $order->customer_mail_address = $data['customer_mail_address'];
         $order->customer_phone_number = $data['customer_phone_number'];
         $order->restaurant_id = $data['restaurant_id'];
 
-        $order->save;
+        // Salva l'ordine nel database
+        $order->save();
 
+        // Associa i piatti all'ordine
+        foreach ($data['userData']['dishes'] as $dishData) {
+            $dish = Dish::find($dishData['id']); // Trova il piatto dal database
+            if ($dish) {
+                // Aggiungi il piatto all'ordine con la quantità specificata
+                $order->dishes()->attach($dish->id, ['quantity' => $dishData['quantity']]);
+            }
+        }
+
+        // Invia una risposta JSON per confermare il successo
+        return response()->json(['message' => 'Ordine creato con successo'], 201);
     }
+
 
 }
