@@ -68,22 +68,28 @@ class OrderController extends Controller
 
         // Crea un nuovo ordine con i dati dell'utente
         $order = new Order();
-        $order->customer_name = $data['customer_name'];
-        $order->customer_lastName = $data['customer_lastName'];
-        $order->customer_adress = $data['customer_adress'];
-        $order->customer_mail_adress = $data['customer_mail_adress'];
-        $order->customer_phone_number = $data['customer_phone_number'];
-        $order->restaurant_id = $data['restaurant_id'];
+        $order->customer_name = $data['orderData'][0]['customer_name'];
+        $order->customer_lastName = $data['orderData'][0]['customer_lastName'];
+        $order->customer_adress = $data['orderData'][0]['customer_adress'];
+        $order->customer_mail_adress = $data['orderData'][0]['customer_mail_adress'];
+        $order->customer_phone_number = $data['orderData'][0]['customer_phone_number'];
+        $order->restaurant_id = $data['orderData'][0]['restaurant_id'];
 
         // Salva l'ordine nel database
         $order->save();
 
-        // Associa i piatti all'ordine
-        foreach ($data['dishes'] as $dishData) {
-            $dish = Dish::find($dishData['id']); // Trova il piatto dal database
+        foreach ($data['takeInfo'] as $takeInfoData) {
+            // Aggiungi il piatto all'ordine con le informazioni fornite da takeInfo
+            $dish = Dish::find($takeInfoData['id']); // Trova il piatto dal database
             if ($dish) {
                 // Aggiungi il piatto all'ordine con la quantità specificata
-                $order->dishes()->attach($dish->id, ['quantity' => $dishData['quantity']]);
+                $order->dishes()->attach($dish->id, [
+                    'name' => $dish->name,
+                    'price' => $dish->price,
+                    'quantity' => $takeInfoData['quantity'],
+                    'dish_id' => $dish->id,
+                    'order_id' => $order->id
+                ]);
             }
         }
 
