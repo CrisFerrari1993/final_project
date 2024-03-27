@@ -36,6 +36,12 @@
                             </a>
                         </button>
 
+                        <button class="btn btn-primary me-2 position-absolute end-0" style="margin-top: 95px">
+                            <a class="btn_link" href="{{ route('restaurant.stats', $restaurant->id) }}">
+                                Statistiche
+                            </a>
+                        </button>
+
 
                         <div class="card s-info">
                             <h3 class="card-title mt-5"><strong>{{ auth()->user()->restaurant->name }}</strong></h3>
