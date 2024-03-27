@@ -14,6 +14,7 @@
                         <th scope="col">Email</th>
                         <th scope="col">Telefono</th>
                         <th scope="col">Dettagli ordine</th>
+                        <th scope="col">Importo pagato</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -24,7 +25,26 @@
                         <td>{{ $order->customer_adress }}</td>
                         <td>{{ $order->customer_mail_adress }}</td>
                         <td>{{ $order->customer_phone_number }}</td>
-                        {{-- <td>{{ $order->dish_order->name}}</td> --}}
+                        <td>
+                            @foreach ($order->dishes as $dish)
+                                {{$dish->pivot->quantity}}x 
+                                {{$dish->pivot->name}},
+                                <br>
+                            @endforeach
+                        </td>
+                        @php
+                            $total = 0;
+                        @endphp
+                        <td>
+                            @foreach ($order->dishes as $dish)
+                            @php
+                                
+                                $total += $dish->pivot->price;
+                                
+                            @endphp      
+                            @endforeach
+                            {{$total}}
+                        </td>
                     </tr>
                     @endforeach
                 </tbody>
