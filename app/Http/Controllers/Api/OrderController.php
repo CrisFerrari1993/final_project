@@ -8,9 +8,18 @@ use App\Http\Requests\Orders\OrderRequest;
 use Braintree\Gateway;
 use App\Models\Dish;
 use App\Models\Order;
+use App\Models\Restaurant;
 
 class OrderController extends Controller
 {
+    public function show($id)
+    {
+        $restaurant = Restaurant::findOrFail($id);
+        $orders = Order::all();
+        return view('restaurant.order', compact('orders', 'restaurant'));
+    }
+
+
     // generazione del token
     public function generate(Request $request, Gateway $gateway)
     {

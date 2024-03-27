@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\OrderController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -82,6 +83,11 @@ Route::middleware('auth')->group(function () {
 
     Route::put('/restaurant/edit/{id}', [RestaurantController :: class, 'update'])
         ->name('restaurant.update');
+
+
+    // rotte protette per gli ordini
+    Route::get('/restaurant/{id}/orders', [OrderController :: class, 'show'])
+        ->name('order.show');
 });
 
 require __DIR__ . '/auth.php';
