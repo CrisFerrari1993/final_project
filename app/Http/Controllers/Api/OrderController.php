@@ -19,6 +19,13 @@ class OrderController extends Controller
         return view('restaurant.order', compact('orders', 'restaurant'));
     }
 
+    public function stats($id)
+    {
+        $restaurant = Restaurant::findOrFail($id);
+        $orders = Order::all();
+        return view('restaurant.stats', compact('orders', 'restaurant'));
+    }
+
 
     // generazione del token
     public function generate(Request $request, Gateway $gateway)

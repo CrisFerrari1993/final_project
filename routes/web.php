@@ -88,6 +88,10 @@ Route::middleware('auth')->group(function () {
     // rotte protette per gli ordini
     Route::get('/restaurant/{id}/orders', [OrderController :: class, 'show'])
         ->name('order.show');
+
+    // statistiche
+    Route::get('/restaurant/{id}/stats', [OrderController::class, 'stats'])
+        ->name('restaurant.stats');
 });
 
 require __DIR__ . '/auth.php';

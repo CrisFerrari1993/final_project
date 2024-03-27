@@ -49,6 +49,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{url('/') }}">{{ __('Home') }}</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('restaurant.stats', $restaurant->id) }}">{{ __('Statistiche') }}</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
