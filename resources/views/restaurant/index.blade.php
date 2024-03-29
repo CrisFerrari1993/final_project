@@ -7,7 +7,7 @@
             <div class="card-body s-card">
                 <div class="row">
 
-                    <div class="col-sm-2 col-md-2 col-xl-2">
+                    <div class="col-sm-2 col-md-2 col-xl-2 " style="border-radius: 50%;">
                         <img class="img-thumbnail" src="{{ asset('storage/' . auth()->user()->restaurant->logo) }}"
                             alt="logo">
                     </div>
@@ -19,7 +19,7 @@
                             {{-- se visibility è vero --}}
                             <button class="btn btn-danger me-2 position-absolute top-0 end-0">
                                 <a class="btn_link" href="{{ route('restaurant.edit', $restaurant->id) }}">Prenditi una
-                                    pausa</a>
+                                    pausa</a> 
                             </button>
                         @else
                             <button class="btn btn-success me-2 position-absolute top-0 end-0">
@@ -30,20 +30,20 @@
 
 
                         {{-- pulsante per la pagina con gli ordini --}}
-                        <button class="btn btn-success me-2 position-absolute end-0 mt-5" >
+                        <button class="btn btn-primary me-2 position-absolute end-0 mt-5" >
                             <a class="btn_link" href="{{ route('order.show', $restaurant->id) }}">
                                 Visualizza gli ordini
                             </a>
                         </button>
 
-                        <button class="btn btn-primary me-2 position-absolute end-0" style="margin-top: 95px">
+                        {{-- <button class="btn btn-primary me-2 position-absolute end-0" style="margin-top: 95px">
                             <a class="btn_link" href="{{ route('restaurant.stats', $restaurant->id) }}">
                                 Statistiche
                             </a>
-                        </button>
+                        </button> --}}
 
 
-                        <div class="card s-info">
+                        <div class="s-info">
                             <h3 class="card-title mt-5"><strong>{{ auth()->user()->restaurant->name }}</strong></h3>
                             <p class="card-text m-0"><i class="fa-solid fa-location-dot"></i>
                                 {{ auth()->user()->restaurant->adress }}</p>
@@ -58,9 +58,13 @@
                     </div>
                 </div>
             </div>
+            
+            
         </div>
+
+
         <div class="text-center">
-            <a class="btn btn-primary" href="{{ route('dish.create') }}">+ Aggiungi piatto</a>
+            <a class="btn btn-primary" href="{{ route('dish.create') }}" style="background-color: #002152; ">+ Aggiungi piatto</a>
         </div>
 
         <div class="container">
@@ -68,8 +72,8 @@
                 @foreach (auth()->user()->restaurant->dishes as $dish)
                     <div class="mb-3 col-sm-12 col-md-6 col-xl-3 p-3">
                         <a class="idx_link" href="{{ route('dish.show', $dish->id) }}">
-                            <div class="card p-2">
-                                <img src="{{ asset('storage/' . $dish->image) }}" class="fixed-width"
+                            <div class="card p-2 cardbg-s">
+                                <img src="{{ asset('storage/' . $dish->image) }}" class="fixed-width dish-image"
                                     alt="{{ $dish->name }}">
                                 <div class="card-body">
                                     <h5 class="card-title">{{ $dish->name }}</h5>
@@ -101,16 +105,42 @@
 
 
 <style>
+
+    main{
+        background-color: #e5e5f7;
+        opacity: 0.9;
+        background-image:  repeating-linear-gradient(45deg, #ffc244 25%, transparent 25%, transparent 75%, #ffc244 75%, #ffc244), repeating-linear-gradient(45deg, #ffc244 25%, #ffffff 25%, #ffffff 75%, #ffc244 75%, #ffc244);
+        background-position: 0 0, 17px 17px;
+        background-size: 34px 34px;
+    }
     .s-card {
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
+        background-color: #00a082;
+        align-content: center;
     }
 
-    .s-info {
+    .card-title, .card-text{
+        color:white !important;
+    }
+
+    .cardbg-s{
+        background-color: #002152 !important;
+        color: white !important;
+        border-radius: 20px !important;
+        height: 400px !important;
+    }
+
+    /* .s-info {
         background-color: rgba(0, 0, 0, 0.781) !important;
         width: 50%;
         color: white !important;
+    } */
+
+    .dish-image{
+        border-radius: 50%;
+        border: none;
     }
 
     .bullet {

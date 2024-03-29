@@ -90,8 +90,8 @@ Route::middleware('auth')->group(function () {
         ->name('order.show');
 
     // statistiche
-    Route::get('/restaurant/{id}/stats', [OrderController::class, 'stats'])
-        ->name('restaurant.stats');
+    // Route::get('/restaurant/{id}/stats', [OrderController::class, 'stats'])
+    //     ->name('restaurant.stats');
 });
 
 require __DIR__ . '/auth.php';
