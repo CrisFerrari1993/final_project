@@ -2,9 +2,9 @@
 
 @section('content')
     @if (auth()->user()->restaurant)
-        <div class="card mb-3">
+        <div class="card mb-3" style="border: none">
 
-            <div class="card-body s-card">
+            <div class="card-body s-card" >
                 <div class="row">
 
                     <div class="col-sm-2 col-md-2 col-xl-2 " style="border-radius: 50%;">
@@ -30,7 +30,7 @@
 
 
                         {{-- pulsante per la pagina con gli ordini --}}
-                        <button class="btn btn-primary me-2 position-absolute end-0 mt-5" >
+                        <button class="btn btn-primary me-2 position-absolute end-0 mt-5" style="background-color: #ffc244; border:none;">
                             <a class="btn_link" href="{{ route('order.show', $restaurant->id) }}">
                                 Visualizza gli ordini
                             </a>
@@ -57,14 +57,12 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            
-            
+            </div>    
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 200"><path fill="#00a082" fill-opacity="1" d="M0,96L34.3,96C68.6,96,137,96,206,90.7C274.3,85,343,75,411,85.3C480,96,549,128,617,154.7C685.7,181,754,203,823,186.7C891.4,171,960,117,1029,106.7C1097.1,96,1166,128,1234,122.7C1302.9,117,1371,75,1406,53.3L1440,32L1440,0L1405.7,0C1371.4,0,1303,0,1234,0C1165.7,0,1097,0,1029,0C960,0,891,0,823,0C754.3,0,686,0,617,0C548.6,0,480,0,411,0C342.9,0,274,0,206,0C137.1,0,69,0,34,0L0,0Z"></path></svg> 
         </div>
 
-
         <div class="text-center">
-            <a class="btn btn-primary" href="{{ route('dish.create') }}" style="background-color: #002152; ">+ Aggiungi piatto</a>
+            <a class="btn btn-primary" href="{{ route('dish.create') }}" style="background-color: #ffc244; border:none; ">+ Aggiungi piatto</a>
         </div>
 
         <div class="container">
@@ -79,7 +77,7 @@
                                     <h5 class="card-title">{{ $dish->name }}</h5>
                                     <p class="card-text">€ {{ $dish->price }}</p>
                                     <div class="d-flex mt-2 d-flex align-items-center">
-                                        <button class="btn btn-primary me-2">
+                                        <button class="btn btn-primary me-2" style="background-color: 00a082; border:none;">
                                             <a class="btn_link" href="{{ route('dish.edit', $dish->id) }}">
                                                 <i class="fa-solid fa-pencil"></i> Modifica
                                             </a>
@@ -106,13 +104,7 @@
 
 <style>
 
-    main{
-        background-color: #e5e5f7;
-        opacity: 0.9;
-        background-image:  repeating-linear-gradient(45deg, #ffc244 25%, transparent 25%, transparent 75%, #ffc244 75%, #ffc244), repeating-linear-gradient(45deg, #ffc244 25%, #ffffff 25%, #ffffff 75%, #ffc244 75%, #ffc244);
-        background-position: 0 0, 17px 17px;
-        background-size: 34px 34px;
-    }
+   
     .s-card {
         background-repeat: no-repeat;
         background-size: cover;
@@ -126,7 +118,7 @@
     }
 
     .cardbg-s{
-        background-color: #002152 !important;
+        background-color: #ffc244 !important;
         color: white !important;
         border-radius: 20px !important;
         height: 400px !important;
