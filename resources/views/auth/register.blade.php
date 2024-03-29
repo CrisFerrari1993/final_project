@@ -1,27 +1,27 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container mt-4 mb-4">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 160"><path fill="#ffc244" fill-opacity="1" d="M0,160L80,138.7C160,117,320,75,480,69.3C640,64,800,96,960,112C1120,128,1280,128,1360,128L1440,128L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"></path></svg><div class="container mt-4 mb-4">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Registrati') }}</div>
+                <div class="card-header bg-container">{{ __('Registrati') }}</div>
 
-                <div class="card-body">
+                <div class="card-body bg-container">
                     <form method="POST" id="registrationForm" action="{{ route('register') }}" enctype="multipart/form-data">
                         @csrf
                         @method('POST')
 
                         <!-- dati ristoratore -->
                         <div class="container d-flex justify-content-center mb-3 mt-3">
-                            <h3>Dati ristoratore</h3>
+                            <h3>Dati Personali</h3>
                         </div>
 
                         <div class="mb-4 row justify-content-center">
-                            <label for="firstName" class="col-md-4 col-form-label  form-label">{{ __('Nome') }}</label>
+                            <label for="firstName" class="col-md-4 col-form-label form-label">{{ __('Nome') }}</label>
 
                             <div class="col-md-6">
-                                <input id="firstName" type="text" class="form-control" name="firstName" value="{{ old('firstName') }}">
+                                <input id="firstName" type="text" class="form-control bg-container" name="firstName" value="{{ old('firstName') }}">
                                 <span id="firstNameError" class="text-danger d-none">Inserisci il tuo nome correttamente</span>
                                 {{-- @error('firstName')
                                     <span class='error'>
@@ -32,10 +32,10 @@
                         </div>
 
                         <div class="mb-4 row justify-content-center">
-                            <label for="lastName" class="col-md-4 col-form-label  form-label">{{ __('Cognome') }}</label>
+                            <label for="lastName" class="col-md-4 col-form-label form-label">{{ __('Cognome') }}</label>
 
                             <div class="col-md-6">
-                                <input id="lastName" type="text" class="form-control" name="lastName" value="{{ old('lastName') }}">
+                                <input id="lastName" type="text" class="form-control bg-container" name="lastName" value="{{ old('lastName') }}">
                                 <span id="lastNameError" class="text-danger d-none">Inserisci il tuo cognome correttamente</span>
 
                                 {{-- @error('lastName')
@@ -50,7 +50,7 @@
                             <label for="email" class="col-md-4 col-form-label  form-label">{{ __('Indirizzo E-mail ') }}</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email">
+                                <input id="email" type="email" class="form-control bg-container" name="email">
                                 <span id="emailError" class="text-danger d-none">Inserisci la tua mail correttamente</span>
                             </div>
                         </div>
@@ -59,7 +59,7 @@
                             <label for="password" class="col-md-4 col-form-label  form-label">{{ __('Password') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password">
+                                <input id="password" type="password" class="form-control bg-container" name="password">
                                 <span id="passwordError" class="text-danger d-none">Inserisci una password piu' lunga di 8 caratteri</span>
                                 @error('password')
                                     <span class='error'>
@@ -73,7 +73,7 @@
                             <label for="password-confirm" class="col-md-4 col-form-label  form-label">{{ __('Conferma Password') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation">
+                                <input id="password-confirm" type="password" class="form-control bg-container" name="password_confirmation">
                                 <span id="password-confirm-error" class="text-danger d-none">la password è errata</span>
                             </div>
                         </div>
@@ -88,7 +88,7 @@
                             <label for="name" class="col-md-4 col-form-label  form-label" >Nome</label>
 
                             <div class="col-md-6">
-                                <input type="text" name="name" id="nameRestaurant" class="form-control ">
+                                <input type="text" name="name" id="nameRestaurant" class="form-control bg-container">
                                 <span id="nameRestaurantError" class="text-danger d-none">Inserisci il nome del ristorante correttamente</span>
                                 @error('name')
                                     <span class='error'>
@@ -103,7 +103,7 @@
                             <label for="adress" class="col-md-4 col-form-label  form-label">{{__('Indirizzo')}}</label>
 
                             <div class="col-md-6">
-                                <input type="text" name="adress" id="adressRestaurant" class="form-control">
+                                <input type="text" name="adress" id="adressRestaurant" class="form-control bg-container">
                                 <span id="adressRestaurantError" class="text-danger d-none">Inserisci l'indirizzo del ristorante correttamente</span>
                                 @error('adress')
                                     <span class='error'>
@@ -118,7 +118,7 @@
                             <label for="logo" class="col-md-4 col-form-label  form-label">{{__('Logo')}}</label>
 
                             <div class="col-md-6">
-                                <input type="file" name="logo" id="logo" class="form-control" accept="image/png, image/svg">
+                                <input type="file" name="logo" id="logo" class="form-control bg-container" accept="image/png, image/svg">
                                 <span id="logoError" class="text-danger d-none"></span>
                                 @error('logo')
                                     <span class='error'>
@@ -132,7 +132,7 @@
                         <div class="mb-4 row justify-content-center">
                             <label for="wallpaper" class="col-md-4 col-form-label  form-label">{{__('Wallpaper')}}</label>
                             <div class="col-md-6">
-                                <input type="file" name="wallpaper" id="wallpaper" class="form-control" accept="image/png, image/svg">
+                                <input type="file" name="wallpaper" id="wallpaper" class="form-control bg-container" accept="image/png, image/svg">
                                 <span id="wallpaperError" class="text-danger d-none"></span>
                                 @error('wallpaper')
                                     <span class='error'>
@@ -146,7 +146,7 @@
                         <div class="mb-4 row justify-content-center">
                             <label for="vat_num" class="col-md-4 col-form-label  form-label">{{__('P.iva')}}</label>
                             <div class="col-md-6">
-                                <input type="number" name="vat_num" id="vat_num" class="form-control">
+                                <input type="number" name="vat_num" id="vat_num" class="form-control bg-container">
                                 <span id="vat_num_error" class="text-danger d-none">Inserisci la partita iva correttamente</span>
                                 @error('vat_num')
                                     <span class='error'>
@@ -204,7 +204,7 @@
                         </div>
                         <div class="mb-4 w-100 mb-0">
                             <div class="d-flex justify-content-center">
-                                <button type="submit" id="butSubmit" class="btn btn-primary">
+                                <button type="submit" id="butSubmit" class="btn btn-p text-white">
                                     {{ __('Registrati') }}
                                 </button>
                             </div>
@@ -375,4 +375,17 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 </script>
+    
+<style>
+    .bg-container{
+        background-color: #e9f8f5 !important;
+        border: 1px solid #00a082 !important;
+    }
+    .btn-p{
+        background-color: #ffc244 !important;
+        border:none !important;
+    }
+    
+</style>
 @endsection
+

@@ -25,7 +25,7 @@
     <div id="app">
 
 
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light bg-content">
             <div class="container">
                 <a class="navbar-brand d-flex align-items-center" href="{{ route('restaurant.index') }}">
                     <div class="logo_laravel">
@@ -45,9 +45,9 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
+                    <ul class="navbar-nav me-auto btn-p">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{url('/') }}">{{ __('Home') }}</a>
+                            <a class="nav-link text-white" href="{{url('/') }}">{{ __('Home') }}</a>
                         </li>
                     </ul>
 
@@ -55,12 +55,12 @@
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        <li class="nav-item  btn-p">
+                            <a class="nav-link text-white" href="{{ route('login') }}">{{ __('Login') }}</a>
                         </li>
                         @if (Route::has('register'))
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Registrati') }}</a>
+                            <a class="nav-link text-white" href="{{ route('register') }}">{{ __('Registrati') }}</a>
                         </li>
                         @endif
                         @else
@@ -94,3 +94,19 @@
 </body>
 
 </html>
+
+<style scoped>
+.bg-content{
+    background-color: #ffc244 !important;
+}
+
+.btn-p{
+    background-color: #00a082 !important;
+    border-radius: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    max-width: 100px;
+    text-align: center;
+    margin-bottom: 5px;
+}
+</style>

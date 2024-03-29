@@ -5,9 +5,9 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+                <div class="card-header bg-container">{{ __('Login') }}</div>
 
-                <div class="card-body">
+                <div class="card-body bg-container">
                     
                     <form method="POST" id="formLog" action="{{ route('login') }}">
                         @csrf
@@ -16,7 +16,7 @@
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Indirizzo e-mail') }}</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email">
+                                <input id="email" type="email" class="form-control bg-container" name="email">
                                 <span class="text-danger d-none" id="emailError">Inserisci email</span>
                                 @error('email')
                                 <span class="error" role="alert">
@@ -30,7 +30,7 @@
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password">
+                                <input id="password" type="password" class="form-control bg-container" name="password">
                                 <span class="text-danger d-none" id="passwordError">Inserisci password</span>
                                 @error('password')
                                 <span class="error" role="alert">
@@ -57,12 +57,12 @@
 
                         <div class="mb-4 row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" id="subLog" class="btn btn-primary">
+                                <button type="submit" id="subLog" class="btn btn-primary btn-p">
                                     {{ __('Login') }}
                                 </button>
 
                                 @if (Route::has('password.request'))
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
+                                <a class="btn btn-link a-style" href="{{ route('password.request') }}">
                                     {{ __('Hai dimenticato la password?') }}
                                 </a>
                                 @endif
@@ -109,3 +109,25 @@
     });
 </script>
 @endsection
+
+<style scoped>
+    body{
+        background-color: #ffffff;
+        opacity: 0.8;
+        background-image:  radial-gradient(#ffc244 1.3px, transparent 1.3px), radial-gradient(#ffc244 1.3px, #ffffff 1.3px);
+        background-size: 52px 52px;
+        background-position: 0 0,26px 26px;
+    }
+    .bg-container{
+        background-color: #e9f8f5 !important;
+        border: 1px solid #00a082 !important;
+    }
+
+    .btn-p{
+        background-color: #ffc244 !important;
+        border:none !important;
+    }
+    .a-style{
+        color: #00a082 !important;
+    }
+</style>
