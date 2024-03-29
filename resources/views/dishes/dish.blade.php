@@ -82,7 +82,7 @@
             </div>
         </div>
     </div>
-    <script>
+    <!-- <script>
         document.getElementById('dishSub').addEventListener('click', function (event) {
          event.preventDefault();
 
@@ -130,5 +130,5 @@
         }
             document.getElementById('dishAddForm').submit();
         });
-    </script>
+    </script> -->
 @endsection

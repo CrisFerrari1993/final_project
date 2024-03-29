@@ -83,7 +83,7 @@
     <h1>Ops... Qualcuno sta provando a fare l'hackerino</h1>
 @endif
 
-<script>
+<!-- <script>
         document.getElementById('editSub').addEventListener('click', function (event) {
          event.preventDefault();
 
@@ -132,6 +132,6 @@
             document.getElementById('dishEditForm').submit();
         });
     </script>
-</script>
+</script> -->
 
 @endsection

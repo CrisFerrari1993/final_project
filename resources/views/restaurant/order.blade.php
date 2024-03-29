@@ -4,8 +4,15 @@
 
     @if (Auth::check() && Auth::id() === $restaurant->user_id)
         @auth
-            <h1>ordini ricevuti</h1>
-            <table class="table table-striped">
+
+        <!-- titolo pagina -->
+        <div class="container mt-5 mb-5">
+            <h1>Riepilogo degli ordini ricevuti</h1>
+        </div>
+
+        <!-- tabella ordini -->
+        <div class="container">
+        <table class="table table-striped">
                 <thead>
                     <tr>
                         <th scope="col">#</th>
@@ -33,13 +40,13 @@
                             @endforeach
                         </td>
                         @php
-                            $total = 0;
+            $total = 0;
                         @endphp
                         <td>
                             @foreach ($order->dishes as $dish)
                             @php
-                                
-                                $total += $dish->pivot->price;
+
+                $total += $dish->pivot->price;
                                 
                             @endphp      
                             @endforeach
@@ -49,6 +56,9 @@
                     @endforeach
                 </tbody>
             </table>
+        </div>
+            
+            
         @endauth
         
     @else
@@ -56,3 +66,7 @@
     @endif
 
 @endsection
+
+<style>
+
+</style>

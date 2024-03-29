@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "braintree/braintree_php",
-            "version": "6.17.0",
+            "version": "6.18.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/braintree/braintree_php.git",
-                "reference": "37c187c91416003708632a58c230d03dbe88fb67"
+                "reference": "8ca67004fe2405ef0b6b33a5897594fdcf417e0e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/braintree/braintree_php/zipball/37c187c91416003708632a58c230d03dbe88fb67",
-                "reference": "37c187c91416003708632a58c230d03dbe88fb67",
+                "url": "https://api.github.com/repos/braintree/braintree_php/zipball/8ca67004fe2405ef0b6b33a5897594fdcf417e0e",
+                "reference": "8ca67004fe2405ef0b6b33a5897594fdcf417e0e",
                 "shasum": ""
             },
             "require": {
@@ -51,9 +51,9 @@
             "description": "Braintree PHP Client Library",
             "support": {
                 "issues": "https://github.com/braintree/braintree_php/issues",
-                "source": "https://github.com/braintree/braintree_php/tree/6.17.0"
+                "source": "https://github.com/braintree/braintree_php/tree/6.18.0"
             },
-            "time": "2024-03-06T20:01:30+00:00"
+            "time": "2024-03-26T21:08:13+00:00"
         },
         {
             "name": "brick/math",
@@ -7963,16 +7963,16 @@
         },
         {
             "name": "spatie/ignition",
-            "version": "1.12.0",
+            "version": "1.13.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/ignition.git",
-                "reference": "5b6f801c605a593106b623e45ca41496a6e7d56d"
+                "reference": "e385d778f770580c00ef200be5ab749c3c907147"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/ignition/zipball/5b6f801c605a593106b623e45ca41496a6e7d56d",
-                "reference": "5b6f801c605a593106b623e45ca41496a6e7d56d",
+                "url": "https://api.github.com/repos/spatie/ignition/zipball/e385d778f770580c00ef200be5ab749c3c907147",
+                "reference": "e385d778f770580c00ef200be5ab749c3c907147",
                 "shasum": ""
             },
             "require": {
@@ -8042,7 +8042,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-01-03T15:49:39+00:00"
+            "time": "2024-03-28T14:23:58+00:00"
         },
         {
             "name": "spatie/laravel-ignition",

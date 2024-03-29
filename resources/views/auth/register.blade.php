@@ -12,6 +12,10 @@
                         @csrf
                         @method('POST')
 
+                        <!-- dati ristoratore -->
+                        <div class="container d-flex justify-content-center mb-3 mt-3">
+                            <h3>Dati ristoratore</h3>
+                        </div>
 
                         <div class="mb-4 row justify-content-center">
                             <label for="firstName" class="col-md-4 col-form-label  form-label">{{ __('Nome') }}</label>
@@ -74,10 +78,14 @@
                             </div>
                         </div>
 
+                        <!-- dati ristoratore -->
+                        <div class="container d-flex justify-content-center mb-3 mt-5">
+                            <h3>Dati ristorante</h3>
+                        </div>
 
                         <!-- input restaurant name -->
                         <div class="mb-4 row justify-content-center">
-                            <label for="name" class="col-md-4 col-form-label  form-label" >Nome ristorante</label>
+                            <label for="name" class="col-md-4 col-form-label  form-label" >Nome</label>
 
                             <div class="col-md-6">
                                 <input type="text" name="name" id="nameRestaurant" class="form-control ">
@@ -92,7 +100,7 @@
                         
                         <!-- input restaurant adress -->
                         <div class="mb-4 row justify-content-center">
-                            <label for="adress" class="col-md-4 col-form-label  form-label">{{__('Indirizzo Ristorante')}}</label>
+                            <label for="adress" class="col-md-4 col-form-label  form-label">{{__('Indirizzo')}}</label>
 
                             <div class="col-md-6">
                                 <input type="text" name="adress" id="adressRestaurant" class="form-control">
@@ -107,7 +115,7 @@
 
                         <!-- input restaurant logo -->
                         <div class="mb-4 row justify-content-center">
-                            <label for="logo" class="col-md-4 col-form-label  form-label">{{__('Logo ristorante')}}</label>
+                            <label for="logo" class="col-md-4 col-form-label  form-label">{{__('Logo')}}</label>
 
                             <div class="col-md-6">
                                 <input type="file" name="logo" id="logo" class="form-control" accept="image/png, image/svg">
@@ -122,7 +130,7 @@
 
                         <!-- input restaurant wallpaper -->
                         <div class="mb-4 row justify-content-center">
-                            <label for="wallpaper" class="col-md-4 col-form-label  form-label">{{__('Wallpaper ristorante')}}</label>
+                            <label for="wallpaper" class="col-md-4 col-form-label  form-label">{{__('Wallpaper')}}</label>
                             <div class="col-md-6">
                                 <input type="file" name="wallpaper" id="wallpaper" class="form-control" accept="image/png, image/svg">
                                 <span id="wallpaperError" class="text-danger d-none"></span>
@@ -136,7 +144,7 @@
 
                         <!-- input restaurant vat num -->
                         <div class="mb-4 row justify-content-center">
-                            <label for="vat_num" class="col-md-4 col-form-label  form-label">{{__('P.iva ristorante')}}</label>
+                            <label for="vat_num" class="col-md-4 col-form-label  form-label">{{__('P.iva')}}</label>
                             <div class="col-md-6">
                                 <input type="number" name="vat_num" id="vat_num" class="form-control">
                                 <span id="vat_num_error" class="text-danger d-none">Inserisci la partita iva correttamente</span>
