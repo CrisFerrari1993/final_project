@@ -13,10 +13,10 @@
             border-radius: 20px;
         }
         h3{
-            margin-bottom: 20px;
+            margin: 0 30px 20px 30px;
         }
         h4{
-            margin-bottom: 15px;
+            margin: 0 30px 20px 30px;
         }
     </style>
 
