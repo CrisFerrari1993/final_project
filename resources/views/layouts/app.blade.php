@@ -25,7 +25,7 @@
     <div id="app">
 
 
-        <nav class="navbar navbar-expand-md navbar-light bg-content">
+        <nav class="navbar navbar-expand-md navbar-light bg-content position-fixed w-100" style="z-index:1;">
             <div class="container">
                 <a class="navbar-brand d-flex align-items-center" href="{{ route('restaurant.index') }}">
                     <div class="logo_laravel">
@@ -87,7 +87,7 @@
             </div>
         </nav>
 
-        <main class="">
+        <main class="" style="margin-top: 66px">
             @yield('content')
         </main>
     </div>

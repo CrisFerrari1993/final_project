@@ -7,7 +7,7 @@
 
             <!-- titolo pagina -->
             <div class="container mt-5 mb-5">
-                <h1>Riepilogo degli ordini ricevuti</h1>
+                <h1 class="text-center">Riepilogo degli ordini ricevuti</h1>
             </div>
 
             <!-- tabella ordini -->
