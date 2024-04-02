@@ -5,7 +5,7 @@
         @auth
             <div class="container mt-4">
                 <div class="row justify-content-center">
-                    <div class="col-md-8">
+                    <div class="col-md-8 mt-5">
                         <div class="card mb-4 bg-container">
                             <div class="card-header bg-container">{{ __('Modifica dell\'piatto') }}</div>
 
