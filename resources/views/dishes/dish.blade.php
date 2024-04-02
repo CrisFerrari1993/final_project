@@ -4,8 +4,8 @@
 @section('content')
     <div class="container mt-4">
         <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card mb-4">
+            <div class="col-md-8 mt-5">
+                <div class="card mb-4 bg-container">
                     <div class="card-header">{{ __('Aggiungi un nuovo piatto al tuo menu') }}</div>
                         <div class="card-body">
                             <form action="{{route('dish.store')}}" id="dishAddForm" method="POST" enctype="multipart/form-data">
@@ -74,7 +74,7 @@
                                         
                                     </div>
                                 <div class="text-center">
-                                    <input class="btn btn-primary" id="dishSub" type="submit" value="Inserisci">
+                                    <input class="btn btn-p" id="dishSub" type="submit" value="Inserisci">
                                 </div>
                         </form> 
                     </div>
@@ -131,4 +131,24 @@
             document.getElementById('dishAddForm').submit();
         });
     </script> -->
+
+    <style>
+
+        body{
+            background-color: #e5e5f7;
+            opacity: 0.8;
+            background-image: radial-gradient(#ffc244 1.5px, #ffffff 1.5px);
+            background-size: 30px 30px;
+        }
+        .bg-container{
+            background-color: #e9f8f5 !important;
+            border: 1px solid #00a082 !important;
+        }
+        .btn-p{
+            background-color: #ffc244 !important;
+            border:none !important;
+        }
+
+    </style>
+
 @endsection
