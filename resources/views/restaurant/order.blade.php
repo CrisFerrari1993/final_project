@@ -6,7 +6,7 @@
         @auth
 
             <!-- titolo pagina -->
-            <div class="container mt-5 mb-5">
+            <div class="title">
                 <h1 class="text-center">Riepilogo degli ordini ricevuti</h1>
             </div>
 
@@ -38,12 +38,12 @@
                                     @endforeach
                                 </td>
                                 @php
-                                    $total = 0;
+            $total = 0;
                                 @endphp
                                 <td class="bg-container">
                                     @foreach ($order->dishes as $dish)
                                         @php
-                                            $total += $dish->pivot->price;
+                $total += $dish->pivot->price;
                                         @endphp
                                     @endforeach
                                     {{ $total }}
@@ -69,6 +69,11 @@
         opacity: 0.8;
         background-image: radial-gradient(#ffc244 1.5px, #ffffff 1.5px);
         background-size: 30px 30px;
+    }
+
+    .title {
+        padding-top: 20px;
+        padding-bottom: 20px;
     }
 
     .bg-container {
