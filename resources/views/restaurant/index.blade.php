@@ -18,7 +18,7 @@
 
 
 
-                        <div class="col-xs-10 col-sm-10 col-md-6 col-lg-6 col-xl-6">
+                        <div class="col-xs-10 col-sm-10 col-md-5 col-lg-5 col-xl-6">
                             <h1 class="card-title mt-5"><strong>{{ auth()->user()->restaurant->name }}</strong></h1>
                             <h3 class="card-text m-0"><i class="fa-solid fa-location-dot"></i>
                                 {{ auth()->user()->restaurant->adress }}</h3>
@@ -32,7 +32,7 @@
                         </div>
 
                         
-                        <div class="col-xs-10 col-sm-10 col-md-3 col-lg-3 col-xl-3 d-flex flex-column btn-w">
+                        <div class="col-xs-10 col-sm-10 col-md-2 col-lg-3 col-xl-3 d-flex flex-column btn-w">
 
                             {{-- pulsante di visibilita --}}
                             @if (auth()->user()->restaurant->visibility)
