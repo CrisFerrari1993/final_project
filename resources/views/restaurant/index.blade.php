@@ -8,17 +8,17 @@
             <div class="card-body s-card" >
                 <div class="row">
                     
-                    <div class="col-sm-10 col-md-10 col-xl-10 d-flex justify-content-around flex-row align-items-center m-auto flex-wrap">
+                    <div class="col-xs-12 col-sm-10 col-md-10 col-xl-10 d-flex justify-content-around flex-row align-items-center m-auto flex-wrap">
 
                         {{-- logo del ristorante --}}
-                        <div class="col-sm-2 col-md-2 col-xl-2">
+                        <div class="col-xs-10 col-sm-10 col-md-3 col-lg-3 col-xl-3">
                             <img class="img-thumbnail" src="{{ asset('storage/' . auth()->user()->restaurant->logo) }}"
                             alt="logo">
                         </div>
 
 
 
-                        <div class="col-sm-8 col-md-8 col-xl-7">
+                        <div class="col-xs-10 col-sm-10 col-md-6 col-lg-6 col-xl-6">
                             <h1 class="card-title mt-5"><strong>{{ auth()->user()->restaurant->name }}</strong></h1>
                             <h3 class="card-text m-0"><i class="fa-solid fa-location-dot"></i>
                                 {{ auth()->user()->restaurant->adress }}</h3>
@@ -32,7 +32,7 @@
                         </div>
 
                         
-                        <div class="col-sm-2 col-md-3 col-xl-3 d-flex flex-column">
+                        <div class="col-xs-10 col-sm-10 col-md-3 col-lg-3 col-xl-3 d-flex flex-column btn-w">
 
                             {{-- pulsante di visibilita --}}
                             @if (auth()->user()->restaurant->visibility)
@@ -145,5 +145,9 @@
     .unavaible {
         border-color: red;
         background-color: red;
+    }
+
+    .btn-w{
+        width: 200px !important;
     }
 </style>
